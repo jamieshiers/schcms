@@ -12,7 +12,7 @@
 		$('#calendar').fullCalendar({
 			editable :false, 
 
-			events : "events",
+			events : "api/calendar/events.json",
 			firstDay: 1,
 			timeFormat : "H:mm", 
 

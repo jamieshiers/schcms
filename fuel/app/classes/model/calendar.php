@@ -11,7 +11,10 @@ class Model_Calendar extends \Orm\Model
 		'url',
 		'created_at',
 		'updated_at',
+		'cal_id', 
 	);
+
+	protected static $_belongs_to = array('cal');
 
 	protected static $_observers = array(
 		'Orm\Observer_CreatedAt' => array(

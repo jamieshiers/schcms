@@ -42,33 +42,92 @@
 
 <?php 
 	
-	echo Asset::js(array('fullcalendar.js')); 
-	echo Asset::css(array('fullcalendar.css'));
+	echo Asset::js(array('fullcalendar.js', 'jQuery.popover/jquery.popover-1.1.0.js')); 
+	echo Asset::css(array('fullcalendar.css', 'popover.css'));
 
 ?>
 
+
+
 <script>
+	$(document).ready(function(){
+		$('#ex1').popover({
+				trigger: 'click',
+				title:"hello", 
+				content: "heya - -- - ",
+				verticalOffset: 0,
+				horizontalOffset: 0,
+			});
+	}); 
+	
+
 	$(document).ready(function() {
 		//page is ready, start the calendar
 
 		$('#calendar').fullCalendar({
 			editable :true, 
-			events : "../events",
+			events : "../api/calendar/events/",
 			firstDay: 1,
 			timeFormat : "H:mm",
+			selectable : true,
 			eventResize: function(event,dayDelta,minuteDelta,revertFunc) {
 				$.ajax({
 					type: "POST",
 					url: "../api/calendar/edit/",
-					data: {id: event.id, title: event.title, allday: event.allDay, start:event.start, end:event.end},
+					data: {id: event.id, title: event.title, allday: event.allDay, start:event.start, end:event.end, key:"c6a6da323866fa01d0d4d6f3c1d88c79"},
 					success: function(response)
 					{
-						alert(response);
 					}
 				});
-			}
-		})
+			},
+			eventDrop: function(event,dayDelta,minuteDelta,allDay,revertFunc) {
+				$.ajax({
+					type: "POST",
+					url: "../api/calendar/edit/",
+					data: {id: event.id, title: event.title, allday: event.allDay, start:event.start, end:event.end}, 
+					success: function(response)
+					{
+					}
+				});
+    		},
+    		dayClick: function(date, allDay, jsEvent, view){
+    			json.stringify(jsEvent);
+  				$(".popup").css({"left" : jsEvent.pageX, "top" : jsEvent.pageY});
+  				$(".popup").show();
+  				var allDay = allDay;
+  				var wipit = // create a session id such as a random number that can be cleared later to prevent double submissio
+
+  				$(".submitForm").click(function(){
+  				var title = $(".title").val();
+
+  				if(title){
+    			$.ajax({
+    				type: 'POST',
+    				url: '../api/calendar/create/', 
+    				data: {title: "title"}
+
+				});
+
+  } else {
+    // clear all information, unselect events, and alert that a title needs to be entered
+  }
+  $(".popup").hide();
+  });
+
+  $(".exit").click(function(){
+    // clear all info, unselect events and...
+    $(".popup").hide();
+  });
+}
+
+		});
 	});
 </script>
 
 <div id="calendar"></div>
+<div class="popup" style="display:none; position:absolute; top:25%; left:25%; background-color:white;padding:20px;">
+  <input class"title" type="text" size="26" />
+  <a href="#" onclick="return false" class="submitForm">submit</a>&emsp;
+  <a href="#" onclick="return false" class="exit">cancel</a>
+</div>
+
