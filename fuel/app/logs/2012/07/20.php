@@ -24,3 +24,4 @@ Error - 2012-07-20 10:49:49 --> 8 - Trying to get property of non-object in /App
 Error - 2012-07-20 10:50:39 --> Error - Call to a member function format() on a non-object in /Applications/MAMP/htdocs/schcms/fuel/app/classes/controller/api/calendar.php on line 29
 Error - 2012-07-20 10:50:50 --> Error - Call to a member function format() on a non-object in /Applications/MAMP/htdocs/schcms/fuel/app/classes/controller/api/calendar.php on line 29
 Error - 2012-07-20 13:16:27 --> Parsing Error - syntax error, unexpected '}' in /Applications/MAMP/htdocs/schcms/fuel/app/classes/controller/api/calendar.php on line 121
+Error - 2012-07-20 15:32:51 --> Error - Call to a member function format() on a non-object in /Applications/MAMP/htdocs/schcms/fuel/app/classes/controller/api/calendar.php on line 29

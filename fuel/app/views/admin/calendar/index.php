@@ -84,43 +84,13 @@
 				$.ajax({
 					type: "POST",
 					url: "../api/calendar/edit/",
-					data: {id: event.id, title: event.title, allday: event.allDay, start:event.start, end:event.end}, 
+					data: {id: event.id, title: event.title, allday: event.allDay, start:event.start, end:event.end, key:"c6a6da323866fa01d0d4d6f3c1d88c79"}, 
 					success: function(response)
 					{
 					}
 				});
     		},
-    		dayClick: function(date, allDay, jsEvent, view){
-    			json.stringify(jsEvent);
-  				$(".popup").css({"left" : jsEvent.pageX, "top" : jsEvent.pageY});
-  				$(".popup").show();
-  				var allDay = allDay;
-  				var wipit = // create a session id such as a random number that can be cleared later to prevent double submissio
-
-  				$(".submitForm").click(function(){
-  				var title = $(".title").val();
-
-  				if(title){
-    			$.ajax({
-    				type: 'POST',
-    				url: '../api/calendar/create/', 
-    				data: {title: "title"}
-
-				});
-
-  } else {
-    // clear all information, unselect events, and alert that a title needs to be entered
-  }
-  $(".popup").hide();
-  });
-
-  $(".exit").click(function(){
-    // clear all info, unselect events and...
-    $(".popup").hide();
-  });
-}
-
-		});
+    	});
 	});
 </script>
 

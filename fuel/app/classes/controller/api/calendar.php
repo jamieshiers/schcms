@@ -116,8 +116,5 @@ class Controller_Api_Calendar extends Controller_Rest
 
 //---------------------------------------------------------------------------
 
-	public function post_create()
-	{
-		print_r($_POST);
-	}
+	
 }
