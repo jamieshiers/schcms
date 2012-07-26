@@ -55,8 +55,6 @@ class Controller_Api_Calendar extends Controller_Rest
 
 //---------------------------------------------------------------------------
 
-
-
 	public function get_events()
 	{
 		$start_time = date("Y-m-d", $_GET['start']);
@@ -115,6 +113,12 @@ class Controller_Api_Calendar extends Controller_Rest
 	}
 
 //---------------------------------------------------------------------------
+
+	public function post_create()
+	{
+		
+	}
+
 
 	
 }
