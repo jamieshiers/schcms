@@ -1,45 +1,3 @@
-<!-- <h2>Listing Calendars</h2>
-<br>
-<?php if ($calendars): ?>
-<table class="zebra-striped">
-	<thead>
-		<tr>
-			<th>Title</th>
-			<th>Allday</th>
-			<th>Start</th>
-			<th>End</th>
-			<th>Editable</th>
-			<th>Url</th>
-			<th></th>
-		</tr>
-	</thead>
-	<tbody>
-<?php foreach ($calendars as $calendar): ?>		<tr>
-
-			<td><?php echo $calendar->title; ?></td>
-			<td><?php echo $calendar->allday; ?></td>
-			<td><?php echo $calendar->start; ?></td>
-			<td><?php echo $calendar->end; ?></td>
-			<td><?php echo $calendar->editable; ?></td>
-			<td><?php echo $calendar->url; ?></td>
-			<td>
-				<?php echo Html::anchor('admin/calendar/view/'.$calendar->id, 'View'); ?> |
-				<?php echo Html::anchor('admin/calendar/edit/'.$calendar->id, 'Edit'); ?> |
-				<?php echo Html::anchor('admin/calendar/delete/'.$calendar->id, 'Delete', array('onclick' => "return confirm('Are you sure?')")); ?>
-
-			</td>
-		</tr>
-<?php endforeach; ?>	</tbody>
-</table>
-
-<?php else: ?>
-<p>No Calendars.</p>
-
-<?php endif; ?><p>
-	<?php echo Html::anchor('admin/calendar/create', 'Add new Calendar', array('class' => 'btn success')); ?>
-
-</p>-->
-
 <?php 
 	
 	echo Asset::js(array('fullcalendar.js', 'jQuery.popover/jquery.popover-1.1.0.js')); 
@@ -114,12 +72,12 @@
 				eventClick: function(calEvent, jsEvent) {
 					
         			var left = parseFloat(jsEvent.currentTarget.style.left) - 65 + "px";
-					var top = parseFloat(jsEvent.currentTarget.style.top) + 80 + "px";
+					var top = parseFloat(jsEvent.currentTarget.style.top) + 100 + "px";
+					$(".delete").remove();
 					
-					
-					$(".popup").css({"left" : left, "top" : top});
-					$(".popup").append('<a href="" onclick="return false" class="delete">Delete</a>');
-					$(".popup").show();
+					$(".calendar_popup").css({"left" : left, "top" : top});
+					$(".calendar_popup").append('<a href="" onclick="return false" class="delete">Delete</a>');
+					$(".calendar_popup").show();
 
 					$(".title").val(calEvent.title);
 					$(".time").val(calEvent.time);
@@ -130,7 +88,7 @@
 						$(".title").val('');
 						$("#calendar").fullCalendar('unselect');
 						$("form").clearForm();
-						$(".popup").hide();
+						$(".calendar_popup").hide();
 					});
 
 					$(".delete").click(function(){
@@ -144,7 +102,7 @@
 								$('#calendar').fullCalendar('refetchEvents');
 								$("#calendar").fullCalendar('unselect');
 								$('.delete').remove();
-								$(".popup").hide();
+								$(".calendar_popup").hide();
 								$("form").clearForm();
 								
 							}
@@ -154,7 +112,7 @@
 					});
 
 
-
+				$(".title").val('');
 
 
     			},
@@ -165,8 +123,8 @@
 					var top = parseFloat(jsEvent.target.style.top) + 180 + "px";
 					$(".delete").remove();
 					
-					$(".popup").css({"left" : left, "top" : top});
-					$(".popup").show();
+					$(".calendar_popup").css({"left" : left, "top" : top});
+					$(".calendar_popup").show();
 					
 
 					$(".submitForm").click(function(){
@@ -193,7 +151,7 @@
 							$('#calendar').fullCalendar('refetchEvents');
 							$("#calendar").fullCalendar('unselect');
 							
-							$(".popup").hide();
+							$(".calendar_popup").hide();
 							$("form").clearForm();
 							
 						}
@@ -211,7 +169,7 @@
 					$(".title").val('');
 					$("#calendar").fullCalendar('unselect');
 					$("form").clearForm();
-					$(".popup").hide();
+					$(".calendar_popup").hide();
 				});
 				}
 
@@ -221,7 +179,8 @@
 </script>
 <div style="position:relative;">
 	<div id="calendar"></div>
-	<div class="popup" style="display:none; position:absolute;background-color:white;padding:20px;">
+	<div class="calendar_popup" style="display:none; position:absolute;">
+		<div class="calendar_triangle">&#9650;</div>
 	<form>
   		<input class="title" type="text" size="26" placeholder="New Event"/>
   		<input class="time" type="text" size="26" placeholder="When"/>
