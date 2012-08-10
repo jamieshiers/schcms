@@ -55,6 +55,27 @@ class Controller_Api_Calendar extends Controller_Rest
 
 //---------------------------------------------------------------------------
 
+	public function post_delete()
+	{
+		$valid_key = "c6a6da323866fa01d0d4d6f3c1d88c79";
+
+		if(Input::post('key') !== $valid_key)
+		{
+			$this->response('failed');
+			die();
+		}
+
+		$id = Input::Post('id');
+
+		$calendar = Model_Calendar::find($id);
+
+		$calendar->delete();
+
+		$this->response("Success"); 
+	}
+
+//---------------------------------------------------------------------------
+
 	public function get_events()
 	{
 		$start_time = date("Y-m-d", $_GET['start']);
@@ -108,7 +129,6 @@ class Controller_Api_Calendar extends Controller_Rest
 
 		$this->response($calendar);
 
-		//return(json_encode($calendar));
 
 	}
 
@@ -116,7 +136,50 @@ class Controller_Api_Calendar extends Controller_Rest
 
 	public function post_create()
 	{
+
+		$valid_key = "c6a6da323866fa01d0d4d6f3c1d88c79";
+
+		if(Input::post('key') !== $valid_key)
+		{
+			$this->response('failed');
+			die();
+		}
+
+		$start_date = date_create(Input::post('start'));
+		$date_start = $start_date->format('Y-m-d');
 		
+		$start_time = date_create(Input::post('time'));
+		$time_start = $start_time->format('H:i.s');
+
+		$time_date = $date_start." ".$time_start;
+
+		$end_date = date_create(Input::post('end'));
+		$date_end = $end_date->format('Y-m-d h:i.s');
+	
+		$val = Model_Calendar::validate('create');
+			
+			if ($val->run())
+			{
+				$calendar = Model_Calendar::forge(array(
+					'title' => Input::post('title'),
+					'allday' => Input::post('allday'),
+					'start' => $time_date,
+					'end' => $date_end,
+					'editable' => true,
+					'url' => null,
+					'cal_id' => 1,
+				));
+
+				if ($calendar->save())
+				{
+					$this->response('saved');
+				}
+				else
+				{
+					$this->response('Failed');
+				}
+			}
+
 	}
 
 
