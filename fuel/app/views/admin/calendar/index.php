@@ -45,10 +45,7 @@
 			selectHelper : true,
 			unselectAuto: true,
 				eventResize: function(event,dayDelta,minuteDelta,revertFunc) {
-					if(event.allDay)
-						{
-							disableResizing: true;
-						}
+					
 					$.ajax({
 						type: "POST",
 						url: "../api/calendar/edit/",
@@ -77,10 +74,12 @@
 					
 					$(".calendar_popup").css({"left" : left, "top" : top});
 					$(".calendar_popup").append('<a href="" onclick="return false" class="delete">Delete</a>');
-					$(".calendar_popup").show();
-
+					
+					
 					$(".title").val(calEvent.title);
 					$(".time").val(calEvent.time);
+
+					$(".calendar_popup").show();
 
 					$(".exit").click(function(){
 						$(".exit").unbind();
@@ -112,7 +111,7 @@
 					});
 
 
-				$(".title").val('');
+				
 
 
     			},
@@ -177,6 +176,7 @@
 		
 	});
 </script>
+
 <div style="position:relative;">
 	<div id="calendar"></div>
 	<div class="calendar_popup" style="display:none; position:absolute;">
