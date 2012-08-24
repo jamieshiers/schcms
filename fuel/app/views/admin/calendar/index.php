@@ -49,17 +49,18 @@
 					$.ajax({
 						type: "POST",
 						url: "../api/calendar/edit/",
-						data: {id: event.id, title: event.title, allday: event.allDay, start:event.start, end:event.end, calendar:event.cal, key:"c6a6da323866fa01d0d4d6f3c1d88c79"},
+						data: {id: event.id, title: event.title, allday: event.allDay, start:event.start, end:event.end, calendar:event.cal, time:event.time,  key:"c6a6da323866fa01d0d4d6f3c1d88c79"},
 						success: function(response)
 						{
 						}
 					});
 				},
 				eventDrop: function(event,dayDelta,minuteDelta,allDay,revertFunc) {
+					console.log(event);
 					$.ajax({
 						type: "POST",
 						url: "../api/calendar/edit/",
-						data: {id: event.id, title: event.title, allday: event.allDay, start:event.start, end:event.end, calendar:event.cal, key:"c6a6da323866fa01d0d4d6f3c1d88c79"},
+						data: {id: event.id, title: event.title, allday: event.allDay, start:event.start, end:event.end, calendar:event.cal, time:event.time, key:"c6a6da323866fa01d0d4d6f3c1d88c79"},
 						success: function(response)
 						{
 						}	

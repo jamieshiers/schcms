@@ -48,7 +48,7 @@ class Controller_Api_Calendar extends Controller_Rest
 		}
 		else
 		{
-			$date_end = $date_start;
+			$date_end = $event_start;
 		}
 		
 
@@ -149,6 +149,7 @@ class Controller_Api_Calendar extends Controller_Rest
 				'url'		=> $url, 
 				'color'		=> "#".$event->cal['color'],
 				'cal' 		=> $event->cal['id'],
+				'time'		=> $event->time,
  				);
 
 		endforeach;
