@@ -21,12 +21,35 @@ class Controller_Api_Calendar extends Controller_Rest
 			$this->response('failed');
 			die();
 		}
+
+		$time = Input::post('time');
+
+		if($time)
+		{
+			$start_date = date_create(Input::post('start'));
+			$date_start = $start_date->format('Y-m-d');
+			$start_time = date_create(Input::post('time'));
+			$time_start = $start_time->format('H:i.s');
+			$event_start = $date_start." ".$time_start;
+		}
+		else
+		{
+			$start_date = date_create(Input::post('start'));
+			$event_start = $start_date->format('Y-m-d h:i.s');
+		}
 		
-		$start_date = date_create(Input::post('start'));
-		$date_start = $start_date->format('Y-m-d h:i.s');
+		
 
 		$end_date = date_create(Input::post('end'));
-		$date_end = $end_date->format('Y-m-d h:i.s');
+
+		if($end_date)
+		{
+			$date_end = $end_date->format('Y-m-d h:i.s');
+		}
+		else
+		{
+			$date_end = $date_start;
+		}
 		
 
 		$calendar = Model_Calendar::find(Input::post('id'));
@@ -36,10 +59,12 @@ class Controller_Api_Calendar extends Controller_Rest
 		{
 			$calendar->title = Input::post('title');
 			$calendar->allday = Input::post('allday');
-			$calendar->start = $date_start;
+			$calendar->start = $event_start;
 			$calendar->end = $date_end;
 			$calendar->editable = Input::post('editable');
 			$calendar->url = Input::post('url');
+			$calendar->cal_id = Input::post('calendar');
+			$calendar->time = $time_start;
 
 			if ($calendar->save())
 			{
@@ -123,6 +148,7 @@ class Controller_Api_Calendar extends Controller_Rest
 				'allDay'	=> $false,
 				'url'		=> $url, 
 				'color'		=> "#".$event->cal['color'],
+				'cal' 		=> $event->cal['id'],
  				);
 
 		endforeach;
@@ -161,13 +187,14 @@ class Controller_Api_Calendar extends Controller_Rest
 			if ($val->run())
 			{
 				$calendar = Model_Calendar::forge(array(
-					'title' => Input::post('title'),
-					'allday' => Input::post('allday'),
-					'start' => $time_date,
-					'end' => $date_end,
-					'editable' => true,
-					'url' => null,
-					'cal_id' => 1,
+					'title' 	=> Input::post('title'),
+					'allday'	=> Input::post('allday'),
+					'start' 	=> $time_date,
+					'end' 		=> $date_end,
+					'editable' 	=> true,
+					'url' 		=> null,
+					'cal_id' 	=> Input::post('calendar'),
+					'time'		=> $time_start,
 				));
 
 				if ($calendar->save())

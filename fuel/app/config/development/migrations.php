@@ -13,6 +13,7 @@ return array(
 				4 => '005_add_approval_to_posts',
 				5 => '006_create_cals',
 				6 => '007_add_cal_id_to_calendars',
+				7 => '008_add_time_to_calendars',
 			),
 		),
 		'module' => 

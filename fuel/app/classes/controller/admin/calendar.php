@@ -5,6 +5,7 @@ class Controller_Admin_Calendar extends Controller_Admin
 	public function action_index()
 	{
 		$data['calendars'] = Model_Calendar::find('all');
+		$data['cal'] = Model_Cal::find('all');
 		$this->template->title = "Calendars";
 		$this->template->content = View::forge('admin/calendar/index', $data);
 

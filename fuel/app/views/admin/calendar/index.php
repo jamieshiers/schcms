@@ -49,7 +49,7 @@
 					$.ajax({
 						type: "POST",
 						url: "../api/calendar/edit/",
-						data: {id: event.id, title: event.title, allday: event.allDay, start:event.start, end:event.end, key:"c6a6da323866fa01d0d4d6f3c1d88c79"},
+						data: {id: event.id, title: event.title, allday: event.allDay, start:event.start, end:event.end, calendar:event.cal, key:"c6a6da323866fa01d0d4d6f3c1d88c79"},
 						success: function(response)
 						{
 						}
@@ -59,7 +59,7 @@
 					$.ajax({
 						type: "POST",
 						url: "../api/calendar/edit/",
-						data: {id: event.id, title: event.title, allday: event.allDay, start:event.start, end:event.end, key:"c6a6da323866fa01d0d4d6f3c1d88c79"},
+						data: {id: event.id, title: event.title, allday: event.allDay, start:event.start, end:event.end, calendar:event.cal, key:"c6a6da323866fa01d0d4d6f3c1d88c79"},
 						success: function(response)
 						{
 						}	
@@ -75,11 +75,51 @@
 					$(".calendar_popup").css({"left" : left, "top" : top});
 					$(".calendar_popup").append('<a href="" onclick="return false" class="delete">Delete</a>');
 					
-					
 					$(".title").val(calEvent.title);
 					$(".time").val(calEvent.time);
+					$(".calendar").val(calEvent.cal);
 
 					$(".calendar_popup").show();
+
+					$(".submitForm").click(function(){
+						title = $(".title").val();
+						time = $(".time").val();
+						calendar = $(".calendar").val();
+
+
+					if(time)
+					{
+						var allday = false;
+					}
+					else
+					{
+						var allday = calEvent.allDay; 
+					}
+
+					if(title){
+						
+						$.ajax({
+						type: 'POST',
+						url: '../api/calendar/edit/',
+						data: {id:calEvent.id, title:title, allday:allday, start:calEvent.start, end:calEvent.end, time:time, calendar:calendar, key:"c6a6da323866fa01d0d4d6f3c1d88c79"}, 
+						success: function(response)
+						{	
+							$('#calendar').fullCalendar('refetchEvents');
+							$("#calendar").fullCalendar('unselect');
+							
+							$(".calendar_popup").hide();
+							$("form").clearForm();
+							
+						}
+					});
+					$("#calendar").fullCalendar('unselect');
+					$(".submitForm").unbind();
+					$(".title").val('');
+				} 
+
+				});
+
+
 
 					$(".exit").click(function(){
 						$(".exit").unbind();
@@ -129,6 +169,7 @@
 					$(".submitForm").click(function(){
 						title = $(".title").val();
 						time = $(".time").val();
+						calendar = $(".calendar").val();
 
 					if(time)
 					{
@@ -144,7 +185,7 @@
 						$.ajax({
 						type: 'POST',
 						url: '../api/calendar/create/',
-						data: {title:title, allday:allday, start:startDate, end:endDate, time:time, key:"c6a6da323866fa01d0d4d6f3c1d88c79"}, 
+						data: {title:title, allday:allday, start:startDate, end:endDate, time:time, calendar:calendar, key:"c6a6da323866fa01d0d4d6f3c1d88c79"}, 
 						success: function(response)
 						{	
 							$('#calendar').fullCalendar('refetchEvents');
@@ -184,7 +225,11 @@
 	<form>
   		<input class="title" type="text" size="26" placeholder="New Event"/>
   		<input class="time" type="text" size="26" placeholder="When"/>
-  		<input class="calendar" type="text" size="26" placeholder="1"/> 
+  		<select class="calendar" >
+  			<?php foreach ($cal as $c): ?>
+  			<option value="<?php echo $c->id;?>"><?php echo $c->name; ?></option>
+  			<?php endforeach; ?>
+  		</select>
   		<a href="" onclick="return false" class="submitForm">submit</a>&emsp;
   		<a href="" onclick="return false" class="exit">cancel</a>
   		
