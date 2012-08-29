@@ -15,7 +15,7 @@ class Twitter_Oauth {
 	
 	protected $connection = null;
 	protected $tokens = array();
-	protected $auth_url           = 'http://api.twitter.com/oauth/authenticate';
+	protected $auth_url           = 'http://api.twitter.com/oauth/authorize';
 	protected $request_token_url  = 'http://api.twitter.com/oauth/request_token';
 	protected $access_token_url   = 'http://api.twitter.com/oauth/access_token';
 	protected $signature_method   = 'HMAC-SHA1';
@@ -243,10 +243,15 @@ class Twitter_Oauth {
 	 */
 	public function get_access_key()
 	{
-		//$tokens = \DB::query('SELECT `oauth_token` FROM `twitters`')->execute();
+		
 		$tokens = \DB::Select('oauth_token')->from('twitters')->execute()->current();
+		if($tokens == null)
+		{
+			$tokens = \Session::get('twitter_oauthtokens');
+			return ($tokens === null || ! isset($tokens['access_key']) || empty($tokens['access_key'])) ? null : $tokens['access_key'];
+		}
 		return $tokens['oauth_token'];
-		//return ($tokens === null || ! isset($tokens['access_key']) || empty($tokens['access_key'])) ? null : $tokens['access_key'];
+	
 	}
 
 	/**
@@ -257,8 +262,12 @@ class Twitter_Oauth {
 	public function get_access_secret()
 	{
 		$tokens = \DB::Select('oauth_token_secret')->from('twitters')->execute()->current();
+		if($tokens == null)
+		{
+			$tokens = \Session::get('twitter_oauthtokens');
+			return ($tokens === false || ! isset($tokens['access_secret']) || empty($tokens['access_secret'])) ? null : $tokens['access_secret'];
+		}	
 		return $tokens['oauth_token_secret'];
-		//return ($tokens === false || ! isset($tokens['access_secret']) || empty($tokens['access_secret'])) ? null : $tokens['access_secret'];
 	}
 	
 	/**

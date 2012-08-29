@@ -1,20 +1,16 @@
 <?php
-/**
- * Enter your API keys below.  You get your API keys by creating an
- * app on https://dev.twitter.com/apps/new.
- */
 return array(
-	'active' => Fuel::$env,
-
-	'development' => array(
-		'twitter_consumer_key'     => 'qM4TBmkxt8ViPV54rBb0qg',
-		'twitter_consumer_secret'  => 'D4JjHLpHjT79Ngzmnf5hVOaAwzAEGnm69lWhHKog',
+	'active' => 'development',
+	'development' => 
+	array(
+		'twitter_consumer_key' => 'qM4TBmkxt8ViPV54rBb0qg',
+		'twitter_consumer_secret' => 'D4JjHLpHjT79Ngzmnf5hVOaAwzAEGnm69lWhHKog',
 	),
-	'production' => array(
-		'twitter_consumer_key'     => isset($_SERVER['TWITTER_CONSUMER_KEY']) ? $_SERVER['TWITTER_CONSUMER_KEY'] : null,
-		'twitter_consumer_secret'  => isset($_SERVER['TWITTER_CONSUMER_SECRET']) ? $_SERVER['TWITTER_CONSUMER_SECRET'] : null,
+	'production' => 
+	array(
+		'twitter_consumer_key' => NULL,
+		'twitter_consumer_secret' => NULL,
 	),
-
-
-	'db_connection' 				=> null,
+	'db_connection' => NULL,
+	'active_twitter' => 'set',
 );

@@ -25,8 +25,6 @@
     };
 
 
-
-
 	$(document).ready(function(){
 		$('#ex1').popover({
 			trigger: 'click',
@@ -224,13 +222,26 @@
 	<div class="calendar_popup" style="display:none; position:absolute;">
 		<div class="calendar_triangle">&#9650;</div>
 	<form>
-  		<input class="title" type="text" size="26" placeholder="New Event"/>
+  		<input class="title" type="text" size="26" placeholder="New Event" id="title"/>
   		<input class="time" type="text" size="26" placeholder="When"/>
   		<select class="calendar" >
   			<?php foreach ($cal as $c): ?>
   			<option value="<?php echo $c->id;?>"><?php echo $c->name; ?></option>
   			<?php endforeach; ?>
   		</select>
+  	<?php Config::load('twitter', true);
+
+  	if(Config::get('twitter.active_twitter') == 'set')
+  	{?>
+  	<input class="tweet_message" type="text" size="26" placeholder="Tweet Message" id="tweet_message"/>
+
+
+
+  	<?php } ?>
+
+
+
+
   		<a href="" onclick="return false" class="submitForm">submit</a>&emsp;
   		<a href="" onclick="return false" class="exit">cancel</a>
   		

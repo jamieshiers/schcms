@@ -204,7 +204,7 @@ class Controller_Api_Calendar extends Controller_Rest
 				}
 				else
 				{
-					$this->response('Failed');
+					$this->response('failed');
 				}
 			}
 

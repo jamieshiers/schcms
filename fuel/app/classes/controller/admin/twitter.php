@@ -4,16 +4,8 @@ class Controller_Admin_Twitter extends Controller_Admin
 
 	public function action_login()
 	{
-
-		if(!Twitter::logged_in())
-		{
-			Twitter::set_callback(Uri::create('admin/twitter/callback'));
-			Twitter::login();	
-		}
-		else
-		{
-			Response::redirect(Uri::create('admin/settings/accounts')); 
-		}
+		Twitter::set_callback(Uri::create('admin/twitter/callback'));
+		Twitter::login();	
 	}
 
 	public function action_logout()
@@ -27,6 +19,7 @@ class Controller_Admin_Twitter extends Controller_Admin
 		$tokens = Twitter::get_tokens();
 		$twitter_user = Twitter::call('get', 'account/verify_credentials');
 
+
 		$account = new Model_twitter();
 
 		$account->oauth_token = $tokens['oauth_token'];
@@ -38,8 +31,13 @@ class Controller_Admin_Twitter extends Controller_Admin
 		$account->avatar = $twitter_user->profile_image_url;
 		$account->save();
 
+		Config::load('twitter', true);
+		Config::set('twitter.active_twitter', 'set');
+		config::save('twitter', 'twitter');
+
+
 		Response::redirect(Uri::create('admin/settings/accounts'));
 	}
 
-
+	
 }
