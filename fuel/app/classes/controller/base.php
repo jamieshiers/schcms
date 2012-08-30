@@ -11,12 +11,12 @@ class Controller_Base extends Controller_Template {
 		
 		// Set a global variable so views can use it
 		View::set_global('current_user', $this->current_user);
-		//get the menu items from the database
-		$menu = DB::select()->from('menus')->order_by('parent_id', 'asc')->order_by('position', 'asc')->as_assoc()->execute();
 		
-		$menus = $menu->as_array();
 
-		View::set_global('menu', $menus);
+		Package::load('Menu');
+
+		$menus = MenuBuilder::get_menu_html();
+		View::set_global('menu', $menus, false);
 	}
 
 }

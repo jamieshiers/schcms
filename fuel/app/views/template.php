@@ -23,18 +23,9 @@
 	    	<div class="fill">
 	        	<div class="container">
 	            	<h3><a href="/">My Site</a></h3>
+	            	<!-- echo out the main menu -->
+	            		<?php echo $menu;?>
 
-
-
-	            	<ul>
-	            	<?php foreach($menu as $row)
-	            	{
-	            		if($row['parent_id'] == 0)
-	            			{?>
-	            				<li><?php echo Html::anchor($row['link'], $row['name']);?></li><?php
-	          				}
-	            			
-	            	} ?>
 	        	</div>
 	    	</div>
 		</div>
@@ -59,6 +50,11 @@
 			</div>
 			<div class="span16">
 <?php echo $content; ?>
+
+
+
+
+
 			</div>
 		</div>
 		<footer>
