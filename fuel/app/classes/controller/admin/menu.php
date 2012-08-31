@@ -4,9 +4,14 @@ class Controller_Admin_Menu extends Controller_Admin
 
 	public function action_index()
 	{
-		$data['menus'] = Model_Menu::find('all');
+		//$data['menus'] = Model_Menu::find('all');
+		
+		Package::load('Menu');
+
+		$data['menus'] = MenuBuilder::get_sort_menu();
+
 		$this->template->title = "Menus";
-		$this->template->content = View::forge('admin/menu/index', $data);
+		$this->template->content = View::forge('admin/menu/index', $data, false);
 
 	}
 

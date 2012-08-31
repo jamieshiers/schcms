@@ -1,43 +1,50 @@
 <h2>Listing Menus</h2>
 <br>
-<?php if ($menus): ?>
-<table class="zebra-striped">
-	<thead>
-		<tr>
-			<th>Parent id</th>
-			<th>Page id</th>
-			<th>Name</th>
-			<th>Content type</th>
-			<th>Link</th>
-			<th>Position</th>
-			<th>Active</th>
-			<th></th>
-		</tr>
-	</thead>
-	<tbody>
-<?php foreach ($menus as $menu): ?>		<tr>
 
-			<td><?php echo $menu->parent_id; ?></td>
-			<td><?php echo $menu->page_id; ?></td>
-			<td><?php echo $menu->name; ?></td>
-			<td><?php echo $menu->content_type; ?></td>
-			<td><?php echo $menu->link; ?></td>
-			<td><?php echo $menu->position; ?></td>
-			<td><?php echo $menu->active; ?></td>
-			<td>
-				<?php echo Html::anchor('admin/menu/view/'.$menu->id, 'View'); ?> |
-				<?php echo Html::anchor('admin/menu/edit/'.$menu->id, 'Edit'); ?> |
-				<?php echo Html::anchor('admin/menu/delete/'.$menu->id, 'Delete', array('onclick' => "return confirm('Are you sure?')")); ?>
 
-			</td>
-		</tr>
-<?php endforeach; ?>	</tbody>
-</table>
+<?php echo $menus; ?>
 
-<?php else: ?>
-<p>No Menus.</p>
 
-<?php endif; ?><p>
-	<?php echo Html::anchor('admin/menu/create', 'Add new Menu', array('class' => 'btn success')); ?>
-
+<p>
+<input type="submit" name="toArray" id="toArray" value="To array" />
+<pre id="toArrayOutput"></pre> 
 </p>
+
+<p> 
+
+
+
+
+<?php echo Asset::js(array('sortable.js'));?> 
+
+
+<!-- nested sortable list -->
+<script>
+$(document).ready(function(){
+	$('.sortable').nestedSortable({
+		listType: 'ul',
+		handle: 'div',
+		items: 'li', 
+		toleranceElement: '> div'
+	});
+
+	$('#toArray').live('click', function (){
+			serialized = $('.sortable').nestedSortable('serialize');
+        serialized += '&key=c6a6da323866fa01d0d4d6f3c1d88c79';
+        $.ajax({
+            type: 'post',
+            url: "../api/menu/updatePosition",
+            data: serialized,
+            success: function (msg) {
+			$("#msgholder").html(msg);
+			  setTimeout(function () {
+				  $(loadList()).fadeIn("slow");
+			  }, 2000);
+            }
+
+        });
+		})
+
+
+});
+</script>
