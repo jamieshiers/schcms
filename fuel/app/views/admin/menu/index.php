@@ -3,15 +3,21 @@
 
 
 <?php echo $menus; ?>
+<input type="submit" name="toArray" id="toArray" value="To array">
 
 
-<p>
-<input type="submit" name="toArray" id="toArray" value="To array" />
-<pre id="toArrayOutput"></pre> 
-</p>
+<form>
+	<input class="name" type="text" size="26" placeholder="Menu name" id="name"/>
+	<select class="page">
+		<?php foreach ($pages as $p):?>
+			<option value="<?php echo $p['url'];?>"><?php echo $p['title'];?></option>
+		<?php endforeach;?>
+	</select>
 
-<p> 
+	<a href="" onclick="return false" class="submitForm">submit</a>
 
+
+</form>
 
 
 
@@ -22,28 +28,53 @@
 <script>
 $(document).ready(function(){
 	$('.sortable').nestedSortable({
+		forcePlaceholderSize: true,
 		listType: 'ul',
 		handle: 'div',
 		items: 'li', 
-		toleranceElement: '> div'
+		toleranceElement: '> div',
+		placeholder: 'placeholder',
 	});
+
+
+	var key = "c6a6da323866fa01d0d4d6f3c1d88c79";
+
+	$.ajaxSetup({
+		headers: {"key": key}, 
+	});
+
+
+
 
 	$('#toArray').live('click', function (){
 			serialized = $('.sortable').nestedSortable('serialize');
-        serialized += '&key=c6a6da323866fa01d0d4d6f3c1d88c79';
         $.ajax({
             type: 'post',
-            url: "../api/menu/updatePosition",
+            url: "../api/menu/updatePosition.json",
             data: serialized,
             success: function (msg) {
-			$("#msgholder").html(msg);
-			  setTimeout(function () {
-				  $(loadList()).fadeIn("slow");
-			  }, 2000);
+			
             }
 
         });
 		})
+
+	$('.submitForm').click(function(){
+		var name = $(".name").val();
+		var url = $(".page").val();
+
+		$.ajax({
+			type: 'post', 
+			url: "../api/menu/create",
+			data:{name: name, url: url},
+			success: function(){
+
+			}
+
+		})
+
+
+	});
 
 
 });

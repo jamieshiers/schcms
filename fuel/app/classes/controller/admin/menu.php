@@ -9,6 +9,7 @@ class Controller_Admin_Menu extends Controller_Admin
 		Package::load('Menu');
 
 		$data['menus'] = MenuBuilder::get_sort_menu();
+		$data['pages'] = DB::select('url', 'title')->from('posts')->execute();
 
 		$this->template->title = "Menus";
 		$this->template->content = View::forge('admin/menu/index', $data, false);

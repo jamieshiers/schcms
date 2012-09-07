@@ -19,7 +19,7 @@ class MenuBuilder
 	public static function get_menu_html( $root_id = 0 )
 	{
 		$html  = array();
-		$items = \DB::select()->from('menus')->order_by('parent_id', 'asc')->order_by('position', 'asc')->as_assoc()->execute();
+		$items = \DB::select()->from('menus')->where('active', 1)->order_by('parent_id', 'asc')->order_by('position', 'asc')->as_assoc()->execute();
 		
 		foreach ( $items as $item )
 			$children[$item['parent_id']][] = $item;
@@ -110,11 +110,11 @@ class MenuBuilder
 				
 				// HTML for menu item containing childrens (open)
 				$html[] = sprintf(
-					'%1$s<li id="list_%4$s"><div><a href="%2$s" id="item_%4$s">%3$s</a></div>',
+					'%1$s<li id="list_%4$s"><div><a href="%2$s" id="item_%4$s">%3$s</a><a href="" onclick="return false" class="delete"> Delete</a><input type="hidden" value="%4$s" class="hidden_id"></input></div>',
 					$tab,   // %1$s = tabulation
 					$option['value']['link'],   // %2$s = link (URL)
 					$option['value']['name'],   // %3$s = title
-					$option['value']['id']
+					$option['value']['id']		// %4$s = id 
 				); 
 				$html[] = $tab . "\t" . '<ul>';
 				
@@ -124,11 +124,11 @@ class MenuBuilder
 			else
 				// HTML for menu item with no children (aka "leaf") 
 				$html[] = sprintf(
-					'%1$s<li id="list_%4$s"><div><a href="%2$s" id="list_%4$s">%3$s</a></div></li>',
+					'%1$s<li id="list_%4$s"><div><a href="%2$s" id="list_%4$s">%3$s</a><a href="" onclick="return false" class="delete"> Delete</a><input type="hidden" value="%4$s" class="hidden_id"></input></div></li>',
 					str_repeat( "\t", ( count( $parent_stack ) + 1 ) * 2 - 1 ),   // %1$s = tabulation
 					$option['value']['link'],   // %2$s = link (URL)
 					$option['value']['name'],   // %3$s = title
-					$option['value']['id']
+					$option['value']['id']		// %4$s = id 
 				);
 		}
 		

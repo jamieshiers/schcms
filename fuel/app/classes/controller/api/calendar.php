@@ -18,7 +18,7 @@ class Controller_Api_Calendar extends Controller_Rest
 
 		if(Input::post('key') !== $valid_key)
 		{
-			$this->response('failed');
+			$this->response('Unauthorised', "401");
 			die();
 		}
 
