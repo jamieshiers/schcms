@@ -3,12 +3,13 @@
 
 
 <?php echo $menus; ?>
-<input type="submit" name="toArray" id="toArray" value="To array">
+<input type="submit" name="toArray" id="toArray" value="Save Menu">
 
 
 <form>
 	<input class="name" type="text" size="26" placeholder="Menu name" id="name"/>
 	<select class="page">
+		<option value="vacancy">Vacancies Page</option>
 		<?php foreach ($pages as $p):?>
 			<option value="<?php echo $p['url'];?>"><?php echo $p['title'];?></option>
 		<?php endforeach;?>
@@ -38,9 +39,11 @@ $(document).ready(function(){
 
 
 	var key = "c6a6da323866fa01d0d4d6f3c1d88c79";
+	var secure = "1c138fd52ddd7";
 
 	$.ajaxSetup({
-		headers: {"key": key}, 
+		type:'POST',
+		headers: {"key": key, "secure": secure}, 
 	});
 
 
@@ -49,7 +52,7 @@ $(document).ready(function(){
 	$('#toArray').live('click', function (){
 			serialized = $('.sortable').nestedSortable('serialize');
         $.ajax({
-            type: 'post',
+            
             url: "../api/menu/updatePosition.json",
             data: serialized,
             success: function (msg) {
@@ -64,18 +67,27 @@ $(document).ready(function(){
 		var url = $(".page").val();
 
 		$.ajax({
-			type: 'post', 
 			url: "../api/menu/create",
 			data:{name: name, url: url},
 			success: function(){
-
+				location.reload();
+				$('.name').val = '';
 			}
 
 		})
-
-
 	});
 
+	$('.delete').click(function(){
+		var id = $(this).attr('id');
+		$.ajax({
+			url: "../api/menu/delete",
+			data:{id:id},
+			success: function(){
+				location.reload();
+			}
+		})
+	});
 
 });
+
 </script>
