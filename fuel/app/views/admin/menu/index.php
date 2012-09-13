@@ -10,6 +10,7 @@
 	<input class="name" type="text" size="26" placeholder="Menu name" id="name"/>
 	<select class="page">
 		<option value="vacancy">Vacancies Page</option>
+		<option value="calendar">Calendar Page</option>
 		<?php foreach ($pages as $p):?>
 			<option value="<?php echo $p['url'];?>"><?php echo $p['title'];?></option>
 		<?php endforeach;?>
@@ -71,7 +72,7 @@ $(document).ready(function(){
 			data:{name: name, url: url},
 			success: function(){
 				location.reload();
-				$('.name').val = '';
+				$('.name').val('');
 			}
 
 		})
