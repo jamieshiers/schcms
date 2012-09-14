@@ -8,22 +8,27 @@
 
 <form>
 	<input class="name" type="text" size="26" placeholder="Menu name" id="name"/>
-	<select class="page">
+	<input class="id" type="hidden" value=""/>
+	<select data-placeholder="Select a Page"  class="page chzn-select">
+		<option value=""></option>
 		<option value="vacancy">Vacancies Page</option>
 		<option value="calendar">Calendar Page</option>
 		<?php foreach ($pages as $p):?>
 			<option value="<?php echo $p['url'];?>"><?php echo $p['title'];?></option>
 		<?php endforeach;?>
 	</select>
+	
+		<a id="create" href="" onclick="return false" class="submitForm">submit</a>
+		<a id="edit" style="display:none;cursor:pointer;" onclick="return false" class="editForm">Save</a>		
+	
 
-	<a href="" onclick="return false" class="submitForm">submit</a>
 
 
 </form>
 
 
 
-<?php echo Asset::js(array('sortable.js'));?> 
+<?php echo Asset::js(array('sortable.js', 'chosen.jquery.min.js'));?> 
 
 
 <!-- nested sortable list -->
@@ -37,6 +42,8 @@ $(document).ready(function(){
 		toleranceElement: '> div',
 		placeholder: 'placeholder',
 	});
+
+	$('.chzn-select').chosen();
 
 
 	var key = "c6a6da323866fa01d0d4d6f3c1d88c79";
@@ -86,6 +93,37 @@ $(document).ready(function(){
 			success: function(){
 				location.reload();
 			}
+		})
+	});
+
+	$('.edit').click(function(){
+		var id = $(this).attr('id');
+		var href = $(this).attr('href');
+		var value = $(this).attr('value');
+		
+		$('.name').val(value);
+		$('.page').val(href);
+		$(".page").trigger("liszt:updated");
+		$('.id').val(id);
+		$('#create').hide();
+		$('#edit').show();
+		
+	});
+
+	$('.editForm').click(function(){
+		var id = $('.id').val();
+		var name = $('.name').val();
+		var url = $(".page").val();
+
+		$.ajax({
+			url: "../api/menu/edit",
+			data:{id: id, name: name, url: url},
+			success: function(){
+				$('.name').val('');
+				$('.page').val('');
+				location.reload();
+			}
+
 		})
 	});
 

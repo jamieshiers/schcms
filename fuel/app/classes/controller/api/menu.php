@@ -95,6 +95,46 @@ class Controller_Api_Menu extends Controller_Rest
 		
 		
 	}
+	public function post_edit()
+	{
+		$valid_key = "c6a6da323866fa01d0d4d6f3c1d88c79";
+		$key = $_SERVER['HTTP_KEY'];
+		$valid_secure = "1c138fd52ddd771388a5b4c410a9603a";
+		$half_secure = "71388a5b4c410a9603a";
+		$secure = $_SERVER['HTTP_SECURE'];
+		$full_secure = $secure.$half_secure;
+
+		if($key !== $valid_key && $full_secure !== $valid_secure)
+		{
+			$this->response('Unauthorised', '401');
+		}
+
+		$menu = Model_Menu::find(Input::post('id'));
+		$val = Model_Menu::validate('edit');
+
+		$link = Input::post('url');
+
+		if ($val->run())
+		{
+			$menu->name = Input::post('name');
+			$menu->link = $link;
+
+			if ($menu->save())
+			{
+				$this->response('saved');
+			}
+
+			else
+			{
+				$this->response('failed');
+			}
+		}
+		else
+		{
+			$this->response($val->show_errors());
+		}
+
+	}
 
 
 

@@ -28,13 +28,13 @@ class Model_Menu extends \Orm\Model
 	public static function validate($factory)
 	{
 		$val = Validation::forge($factory);
-		$val->add_field('parent_id', 'Parent Id', 'required|valid_string[numeric]');
-		$val->add_field('page_id', 'Page Id');
+		$val->add_field('parent_id', 'Parent Id', 'valid_string[numeric]');
+		$val->add_field('page_id', 'Page Id', 'max_length[255]');
 		$val->add_field('name', 'Name', 'required|max_length[255]');
 		$val->add_field('content_type', 'Content Type', 'max_length[255]');
-		$val->add_field('link', 'Link', 'required|max_length[255]');
-		$val->add_field('position', 'Position', 'required|valid_string[numeric]');
-		$val->add_field('active', 'Active', 'required|valid_string[numeric]');
+		$val->add_field('link', 'Link', 'max_length[255]');
+		$val->add_field('position', 'Position', 'valid_string[numeric]');
+		$val->add_field('active', 'Active', 'valid_string[numeric]');
 
 		return $val;
 	}

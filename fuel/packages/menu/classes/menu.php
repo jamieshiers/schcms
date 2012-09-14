@@ -76,6 +76,10 @@ class MenuBuilder
 		return implode($html);
 	}
 
+	/**
+	 * get sort menu provides a sortable menu for the admin interface
+	 */
+
 	public static function get_sort_menu($root_id = 0)
 	{
 		$html  = array();
@@ -110,7 +114,7 @@ class MenuBuilder
 				
 				// HTML for menu item containing childrens (open)
 				$html[] = sprintf(
-					'%1$s<li id="list_%4$s"><div><a href="%2$s" id="item_%4$s">%3$s</a><a href="" onclick="return false" id="%4$s" class="delete"> delete</a></div>',
+					'%1$s<li id="list_%4$s"><div><a href="%2$s" id="item_%4$s">%3$s</a><a href="" onclick="return false" id="%4$s" class="edit"> edit</a><a href="" onclick="return false" id="%4$s" class="delete"> delete</a></div>',
 					$tab,   // %1$s = tabulation
 					$option['value']['link'],   // %2$s = link (URL)
 					$option['value']['name'],   // %3$s = title
@@ -124,7 +128,7 @@ class MenuBuilder
 			else
 				// HTML for menu item with no children (aka "leaf") 
 				$html[] = sprintf(
-					'%1$s<li id="list_%4$s"><div><a href="%2$s" id="list_%4$s">%3$s</a><a href="" onclick="return false" id="%4$s" class="delete"> delete</a></div></li>',
+					'%1$s<li id="list_%4$s"><div><a href="%2$s" id="list_%4$s">%3$s</a><a href="%2$s" value="%3$s" onclick="return false" id="%4$s" class="edit"> edit</a><a href="" onclick="return false" id="%4$s" class="delete"> delete</a></div></li>',
 					str_repeat( "\t", ( count( $parent_stack ) + 1 ) * 2 - 1 ),   // %1$s = tabulation
 					$option['value']['link'],   // %2$s = link (URL)
 					$option['value']['name'],   // %3$s = title
