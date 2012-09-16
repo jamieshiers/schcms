@@ -13,7 +13,7 @@ class Controller_Base extends Controller_Template {
 		View::set_global('current_user', $this->current_user);
 		
 
-		Package::load('Menu');
+		Package::load('menu');
 
 		$menus = MenuBuilder::get_menu_html();
 		View::set_global('menu', $menus, false);
