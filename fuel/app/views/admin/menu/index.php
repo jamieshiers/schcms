@@ -17,6 +17,8 @@
 			<option value="<?php echo $p['url'];?>"><?php echo $p['title'];?></option>
 		<?php endforeach;?>
 	</select>
+	<label name="published">Published</label>
+	<input class="published" type="checkbox" />
 	
 		<a id="create" href="" onclick="return false" class="submitForm">submit</a>
 		<a id="edit" style="display:none;cursor:pointer;" onclick="return false" class="editForm">Save</a>		
@@ -73,10 +75,18 @@ $(document).ready(function(){
 	$('.submitForm').click(function(){
 		var name = $(".name").val();
 		var url = $(".page").val();
+		if($('.published').is(':checked'))
+		{
+			var published = 1;
+		}
+		else
+		{
+			var published = 0;
+		}
 
 		$.ajax({
 			url: "../api/menu/create",
-			data:{name: name, url: url},
+			data:{name: name, url: url, active: published,},
 			success: function(){
 				location.reload();
 				$('.name').val('');
@@ -114,10 +124,18 @@ $(document).ready(function(){
 		var id = $('.id').val();
 		var name = $('.name').val();
 		var url = $(".page").val();
+		if($('.published').is(':checked'))
+		{
+			var published = 1;
+		}
+		else
+		{
+			var published = 0;
+		}
 
 		$.ajax({
 			url: "../api/menu/edit",
-			data:{id: id, name: name, url: url},
+			data:{id: id, name: name, url: url, active: published,},
 			success: function(){
 				$('.name').val('');
 				$('.page').val('');

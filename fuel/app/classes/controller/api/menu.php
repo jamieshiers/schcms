@@ -60,7 +60,7 @@ class Controller_Api_Menu extends Controller_Rest
 				'content_type' => null,
 				'link' => Input::post('url'),
 				'position' => 0,
-				'active' => 1,
+				'active' => Input::post('active'),
 			));
 
 				if ($menu and $menu->save())
@@ -118,6 +118,7 @@ class Controller_Api_Menu extends Controller_Rest
 		{
 			$menu->name = Input::post('name');
 			$menu->link = $link;
+			$menu->active = Input::post('active');
 
 			if ($menu->save())
 			{
@@ -128,10 +129,6 @@ class Controller_Api_Menu extends Controller_Rest
 			{
 				$this->response('failed');
 			}
-		}
-		else
-		{
-			$this->response($val->show_errors());
 		}
 
 	}

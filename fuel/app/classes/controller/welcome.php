@@ -58,6 +58,10 @@ class Controller_Welcome extends Controller_Base
 		{
 			$name = Uri::segment('1');
 		}
+		if(!$name)
+		{
+			$name = 'home';
+		}
 
 		
 
