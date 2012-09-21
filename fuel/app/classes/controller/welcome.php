@@ -63,6 +63,13 @@ class Controller_Welcome extends Controller_Base
 			$name = 'home';
 		}
 
+		$date = date('Y-m-d');
+
+		if($name == 'home')
+		{
+			$data['alerts'] = Model_Post::find()->where('alert_expires', '>=', $date);
+		}
+
 		
 
 		//$page = Model_Page::find_by_title($name);
