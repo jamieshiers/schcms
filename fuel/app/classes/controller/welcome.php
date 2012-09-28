@@ -65,11 +65,23 @@ class Controller_Welcome extends Controller_Base
 
 		$date = date('Y-m-d');
 
-		if($name == 'home')
+		// Get any alerts that may need showing
+		$data['alerts'] = Model_Alert::find('all', array(
+				'where' => array(
+					array('alert_expires', '>=', $date), 
+					),
+			));
+
+		foreach($data['alerts'] as $alert)
 		{
-			$data['alerts'] = Model_Post::find()->where('alert_expires', '>=', $date);
+			$data['alert'] =  "<div class='".$alert->alert_type."'>";
+			$data['alert'] .= "<span>".$alert->alert_desc."</span>";
+			$data['alert'] .= "</div>";
 		}
 
+		Package::load('Calendar');
+		$data['left'] = Calendar::build(5);
+		
 		
 
 		//$page = Model_Page::find_by_title($name);

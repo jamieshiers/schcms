@@ -1,14 +1,14 @@
-<?php print_r($alerts);?>
-<?php if($alerts)
-{
-	foreach ($alerts as $alert): ?>
-	<div class="<?php echo $alert->alert_type;?>">
-		<span><?php echo $alert->alert_desc;?></span>
-	</div>
-<?php endforeach; } ?>
+
+<!-- Echo out any alerts there might be -->
+<?php echo $alert ;?>
+
+<!-- Produce the main Page contents -->
+
 <h1><?php echo $content->title;?></h1>
 <?php echo $content->body; echo "<br />";?>
 
+
+<?php echo($left);?>
 
 
 
