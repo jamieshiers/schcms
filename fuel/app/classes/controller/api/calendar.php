@@ -160,6 +160,63 @@ class Controller_Api_Calendar extends Controller_Rest
 
 //---------------------------------------------------------------------------
 
+	public function get_list()
+	{
+		$start_date = date("Y-m-d");
+
+
+
+		$events = Model_Calendar::find('all', array(
+				'where' => array(
+					array('start','>=' ,$start_date)
+					),
+				'related' => array('cal'),
+
+			));
+
+		$calendar = array();
+
+		foreach($events as $event):
+
+			if($event->allday === 'false')
+			{
+				$false = false;
+			}
+			else
+			{
+				$false = true;
+			}
+
+			if($event->url === 'false')
+			{
+				$url = false;
+			}
+			else
+			{
+				$url = $event->url;
+			}
+
+			$calendar[] = array(
+				'id' 		=> $event->id, 
+				'title'		=> $event->title,
+				'start' 	=> $event->start, 
+				'end' 		=> $event->end,
+				'allDay'	=> $false,
+				'url'		=> $url, 
+				'color'		=> "#".$event->cal['color'],
+				'cal' 		=> $event->cal['id'],
+				'time'		=> $event->time,
+ 				);
+
+		endforeach;
+
+		$this->response($calendar);
+
+
+	}
+
+//---------------------------------------------------------------------------
+
 	public function post_create()
 	{
 
