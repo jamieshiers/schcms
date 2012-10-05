@@ -71,22 +71,59 @@ class Controller_Welcome extends Controller_Base
 					array('alert_expires', '>=', $date), 
 					),
 			));
-
-		foreach($data['alerts'] as $alert)
+		if($data['alerts'])
 		{
-			$data['alert'] =  "<div class='".$alert->alert_type."'>";
-			$data['alert'] .= "<span>".$alert->alert_desc."</span>";
-			$data['alert'] .= "</div>";
+			foreach($data['alerts'] as $alert)
+				{
+					$data['alert'] =  "<div class='".$alert->alert_type."'>";
+					$data['alert'] .= "<span>".$alert->alert_desc."</span>";
+					$data['alert'] .= "</div>";
+				}
 		}
-
-		Package::load('Calendar');
-		$data['left'] = Calendar::build(5);
+		else
+		{
+			$data['alert'] = null;
+		}
 		
-		
 
-		//$page = Model_Page::find_by_title($name);
+		// We know which page we need, retrive it from the database
 
 		$data['content'] = Model_Post::find_by_url($name);
+
+		//find out if the page has any modules that it needs loading into it
+		//work out where they need to be placed on the page.
+		
+		$data['left'] = '';
+		$data['right'] = '';
+
+		$modules = Model_Module::find('all');
+		
+		foreach($modules as $module)
+		{
+
+			if($module['position'] == 'left')
+			{
+				Package::load($module['module_name']);
+				$data['left'] .= $module['module_name']::build(2, 3);
+			}
+			if($module['position'] == 'right')
+			{
+				Package::load($module['module_name']);
+				$data['right'] .= $module['module_name']::build(2, 3);
+			}
+
+
+
+			
+
+		
+		}
+		
+			
+		
+
+		//Package::load('Calendar');
+		//$data['left'] = Calendar::build(2, 3);
 
 		if(!$data['content'])
 		{

@@ -164,12 +164,18 @@ class Controller_Api_Calendar extends Controller_Rest
 	{
 		$start_date = date("Y-m-d");
 
-
+		$events = $_GET['events'];
+		$cal = $_GET['cal'];
 
 		$events = Model_Calendar::find('all', array(
 				'where' => array(
-					array('start','>=' ,$start_date)
+					array('start','>=' ,$start_date),
+					array('cal_id', '=', $cal),
 					),
+				'order_by' => array(
+					'start' => 'asc',
+					),
+				'limit' => $events,
 				'related' => array('cal'),
 
 			));
@@ -205,6 +211,7 @@ class Controller_Api_Calendar extends Controller_Rest
 				'url'		=> $url, 
 				'color'		=> "#".$event->cal['color'],
 				'cal' 		=> $event->cal['id'],
+				'cal_name'	=> $event->cal['name'],
 				'time'		=> $event->time,
  				);
 

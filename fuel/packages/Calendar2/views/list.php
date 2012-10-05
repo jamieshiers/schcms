@@ -1,6 +1,6 @@
 
 <div class="calendar">
-	<h2>Upcoming Events</h2>
+	<h2>Upcoming Events for calendar 2</h2>
 	<div class="eventsList">
 		<?php if ($calendar->status == "200") { 
 			foreach ($calendar->body as $cal): ?>

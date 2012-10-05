@@ -14,6 +14,10 @@ return array(
 				5 => '006_create_cals',
 				6 => '007_add_cal_id_to_calendars',
 				7 => '008_add_time_to_calendars',
+				8 => '009_create_modules',
+				9 => '010_add_position_to_modules',
+				10 => '011_add_order_to_modules',
+				11 => '012_add_active_to_modules',
 			),
 		),
 		'module' => 

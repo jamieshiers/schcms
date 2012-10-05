@@ -7,9 +7,11 @@
 <h1><?php echo $content->title;?></h1>
 <?php echo $content->body; echo "<br />";?>
 
-
-<?php echo($left);?>
-
-
+<div class="left">
+<?php echo($left); ?>
+</div>
+<div class="right">
+<?php echo($right); ?>
+</div> 
 
 

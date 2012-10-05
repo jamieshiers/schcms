@@ -8,7 +8,7 @@ class Controller_Admin extends Controller_Base {
 	{
 		parent::before();
 
-		if (   Auth::member(0) and Request::active()->action != 'login')
+		if ( ! Auth::member(100) and Request::active()->action != 'login')
 		{
 			Response::redirect('admin/login');
 		}
@@ -37,7 +37,7 @@ class Controller_Admin extends Controller_Base {
 				{
 					// credentials ok, go right in
 					$current_user = Model_User::find_by_username(Auth::get_screen_name());
-					Session::set_flash('success', 'Welcome, '.$current_user->username);
+					Session::set_flash('success', e('Welcome, '.$current_user->username));
 					Response::redirect('admin');
 				}
 				else
@@ -46,6 +46,7 @@ class Controller_Admin extends Controller_Base {
 				}
 			}
 		}
+
 		$this->template->title = 'Login';
 		$this->template->content = View::forge('admin/login', array('val' => $val), false);
 	}

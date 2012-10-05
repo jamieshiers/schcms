@@ -1,8 +1,8 @@
 <?php 
 
-namespace Calendar;
+namespace Calendar2;
 
-class Calendar
+class Calendar2
 {
 
 	public static function build($events, $cal)
