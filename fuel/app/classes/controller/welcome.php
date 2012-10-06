@@ -63,6 +63,29 @@ class Controller_Welcome extends Controller_Base
 			$name = 'home';
 		}
 
+		$temp = Uri::segment('1');
+
+		$template = 'template_'.$temp;
+
+		// We know which page we need, retrive it from the database
+
+		$data['content'] = Model_Post::find_by_url($name);
+
+		// Check to See if the page exists or is unpublished 
+
+		if(!$data['content'])
+		{
+			return Response::forge(ViewModel::forge('welcome/404'), 404);
+		}
+
+		if($data['content']->published == "0")
+		{
+			return Response::forge(ViewModel::forge('welcome/404'), 404);
+		}
+
+		// See if there are any alerts that we might need to let the user
+		// know about
+		
 		$date = date('Y-m-d');
 
 		// Get any alerts that may need showing
@@ -71,6 +94,7 @@ class Controller_Welcome extends Controller_Base
 					array('alert_expires', '>=', $date), 
 					),
 			));
+
 		if($data['alerts'])
 		{
 			foreach($data['alerts'] as $alert)
@@ -84,11 +108,8 @@ class Controller_Welcome extends Controller_Base
 		{
 			$data['alert'] = null;
 		}
-		
 
-		// We know which page we need, retrive it from the database
 
-		$data['content'] = Model_Post::find_by_url($name);
 
 		//find out if the page has any modules that it needs loading into it
 		//work out where they need to be placed on the page.
@@ -96,11 +117,16 @@ class Controller_Welcome extends Controller_Base
 		$data['left'] = '';
 		$data['right'] = '';
 
-		$modules = Model_Module::find('all');
+		$modules = Model_Module::find('all', array(
+			'where' => array(
+				array('page_id', '=', $data['content']->id),
+				array('active', '=', '1'),
+				),
+			'order_by' => array('order' => 'asc'),
+			));
 		
 		foreach($modules as $module)
 		{
-
 			if($module['position'] == 'left')
 			{
 				Package::load($module['module_name']);
@@ -111,29 +137,11 @@ class Controller_Welcome extends Controller_Base
 				Package::load($module['module_name']);
 				$data['right'] .= $module['module_name']::build(2, 3);
 			}
-
-
-
-			
-
-		
-		}
-		
-			
-		
-
-		//Package::load('Calendar');
-		//$data['left'] = Calendar::build(2, 3);
-
-		if(!$data['content'])
-		{
-			return Response::forge(ViewModel::forge('welcome/404'), 404);
 		}
 
-		if($data['content']->published == "0")
-		{
-			return Response::forge(ViewModel::forge('welcome/404'), 404);
-		}
+		//Send over the page varirbles and begin to create the page
+
+		
 
 
 		$this->template->title = $data['content']->title; 
