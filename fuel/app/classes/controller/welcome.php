@@ -52,7 +52,7 @@ class Controller_Welcome extends Controller_Base
 
 		if($url)
 		{
-			$name = Uri::segment('2');
+			$name = Uri::segment('1').'/'.Uri::segment('2');
 		}
 		else
 		{
@@ -62,10 +62,6 @@ class Controller_Welcome extends Controller_Base
 		{
 			$name = 'home';
 		}
-
-		$temp = Uri::segment('1');
-
-		$template = 'template_'.$temp;
 
 		// We know which page we need, retrive it from the database
 
@@ -140,9 +136,6 @@ class Controller_Welcome extends Controller_Base
 		}
 
 		//Send over the page varirbles and begin to create the page
-
-		
-
 
 		$this->template->title = $data['content']->title; 
 		$this->template->content = View::forge('welcome/pages', $data, FALSE);

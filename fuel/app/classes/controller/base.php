@@ -5,32 +5,26 @@ class Controller_Base extends Controller_Template {
 	public function before()
 	{
 
-		$segments = count(Uri::segments());
-
 		$temp = Uri::segment('1');
 
-		if($segments == '2')
+		$file = APPPATH."views/template_".$temp.".php";
+
+		if(file_exists($file))
 		{
-			
-
-			$file = APPPATH."views/template_".$temp.".php";
-
-			if(file_exists($file))
-			{
-				$this->template = 'template_'.$temp;
-			}
-			else
-			{
-				$this->template = 'template';
-			}
-
-			if(Uri::segment('1') === 'admin')
-			{
-				$this->template = 'admin/template';
-			}
-
-			
+			$this->template = 'template_'.$temp;
 		}
+		else
+		{
+			$this->template = 'template';
+		}
+
+		if(Uri::segment('1') === 'admin')
+		{
+			$this->template = 'admin/template';
+		}
+
+			
+		
 
 		parent::before();
 		

@@ -10,6 +10,14 @@
 			</div>
 		</div>
 		<div class="clearfix">
+			<?php echo Form::label('Section', 'catergory'); ?>
+
+			<div class="input">
+				<?php echo Form::input('category', Input::post('category', isset($post) ? $post->category : ''), array('class' => 'span6')); ?>
+
+			</div>
+		</div>
+		<div class="clearfix">
 			<?php echo Form::label('Body', 'body'); ?>
 			<!-- Toolbar-->
 			<div id="wysihtml5-toolbar" style="display: none;">

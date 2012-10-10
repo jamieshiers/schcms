@@ -68,7 +68,8 @@ class Controller_Admin_Posts extends Controller_Admin
 			
 			if ($val->run())
 			{
-				$url = str_replace(' ', '_', Input::post('title'));
+				$titleUrl = str_replace(' ', '_', Input::post('title'));
+				$url = Input::post('category').'/'.$titleUrl;
 
 				$post = Model_Post::forge(array(
 					'title' => Input::post('title'),
@@ -77,6 +78,7 @@ class Controller_Admin_Posts extends Controller_Admin
 					'url' => $url, 
 					'published' => Input::post('published'),
 					'approved' => Input::post('approve'),
+					'category' => Input::post('category'),
 				));
 
 				if ($post and $post->save())

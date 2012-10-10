@@ -18,6 +18,8 @@ return array(
 				9 => '010_add_position_to_modules',
 				10 => '011_add_order_to_modules',
 				11 => '012_add_active_to_modules',
+				12 => '013_drop_posts',
+				13 => '014_drop_pages',
 			),
 		),
 		'module' => 

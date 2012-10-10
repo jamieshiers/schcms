@@ -14,7 +14,7 @@
 		<option value="/vacancy">Vacancies Page</option>
 		<option value="/calendar">Calendar Page</option>
 		<?php foreach ($pages as $p):?>
-			<option value="<?php echo "/".$p['category']."/"; echo $p['url'];?>"><?php echo $p['title'];?></option>
+			<option value="<?php "/"; echo $p['url'];?>"><?php echo $p['title'];?></option>
 		<?php endforeach;?>
 	</select>
 	<label name="published">Published</label>
