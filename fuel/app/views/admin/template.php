@@ -14,7 +14,7 @@
 	)); ?>
 	<script>
 		$(function(){ $('.topbar').dropdown(); });
-		$(function(){$('.datepicker').datepicker();});
+		$(function(){$('.datepicker').datepicker({dateFormat: "yy-mm-dd"});});
 	</script>
 
 </head>
