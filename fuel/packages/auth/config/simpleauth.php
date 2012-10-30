@@ -77,6 +77,8 @@ return array(
 		 * Global allow by assigning true to a role (use with care!):
 		 *   'super' => true,
 		 */
+
+
 	),
 
 	/**

@@ -15,9 +15,12 @@ class Controller_Admin_Vacancy extends Controller_Admin
 
 	public function action_index()
 	{
-		$data['vacancies'] = Model_Vacancy::find('all');
-		$this->template->title = "Vacancies";
-		$this->template->content = View::forge('admin/vacancy/index', $data);
+
+			$data['vacancies'] = Model_Vacancy::find('all');
+			$this->template->title = "Vacancies";
+			$this->template->content = View::forge('admin/vacancy/index', $data);
+		
+		
 
 	}
 

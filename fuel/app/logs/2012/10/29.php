@@ -1,0 +1,36 @@
+<?php defined('COREPATH') or exit('No direct script access allowed'); ?>
+
+Error - 2012-10-29 14:36:20 --> 8 - Undefined variable: title in /Applications/MAMP/htdocs/schcms/fuel/app/views/admin/template.php on line 5
+Error - 2012-10-29 14:36:20 --> 8 - Undefined variable: content in /Applications/MAMP/htdocs/schcms/fuel/app/views/admin/template.php on line 78
+Error - 2012-10-29 14:36:43 --> 8 - Undefined variable: title in /Applications/MAMP/htdocs/schcms/fuel/app/views/admin/template.php on line 5
+Error - 2012-10-29 14:36:43 --> 8 - Undefined variable: content in /Applications/MAMP/htdocs/schcms/fuel/app/views/admin/template.php on line 78
+Error - 2012-10-29 14:36:44 --> 8 - Undefined variable: title in /Applications/MAMP/htdocs/schcms/fuel/app/views/admin/template.php on line 5
+Error - 2012-10-29 14:36:44 --> 8 - Undefined variable: content in /Applications/MAMP/htdocs/schcms/fuel/app/views/admin/template.php on line 78
+Error - 2012-10-29 14:37:57 --> 8 - Undefined variable: title in /Applications/MAMP/htdocs/schcms/fuel/app/views/admin/template.php on line 5
+Error - 2012-10-29 14:37:57 --> 8 - Undefined variable: content in /Applications/MAMP/htdocs/schcms/fuel/app/views/admin/template.php on line 78
+Error - 2012-10-29 14:37:58 --> 8 - Undefined variable: title in /Applications/MAMP/htdocs/schcms/fuel/app/views/admin/template.php on line 5
+Error - 2012-10-29 14:37:58 --> 8 - Undefined variable: content in /Applications/MAMP/htdocs/schcms/fuel/app/views/admin/template.php on line 78
+Error - 2012-10-29 14:37:59 --> 8 - Undefined variable: title in /Applications/MAMP/htdocs/schcms/fuel/app/views/admin/template.php on line 5
+Error - 2012-10-29 14:37:59 --> 8 - Undefined variable: content in /Applications/MAMP/htdocs/schcms/fuel/app/views/admin/template.php on line 78
+Error - 2012-10-29 14:43:32 --> 8 - Undefined variable: title in /Applications/MAMP/htdocs/schcms/fuel/app/views/admin/template.php on line 5
+Error - 2012-10-29 14:43:32 --> 8 - Undefined variable: content in /Applications/MAMP/htdocs/schcms/fuel/app/views/admin/template.php on line 78
+Error - 2012-10-29 14:43:33 --> 8 - Undefined variable: title in /Applications/MAMP/htdocs/schcms/fuel/app/views/admin/template.php on line 5
+Error - 2012-10-29 14:43:33 --> 8 - Undefined variable: content in /Applications/MAMP/htdocs/schcms/fuel/app/views/admin/template.php on line 78
+Error - 2012-10-29 14:43:34 --> 8 - Undefined variable: title in /Applications/MAMP/htdocs/schcms/fuel/app/views/admin/template.php on line 5
+Error - 2012-10-29 14:43:34 --> 8 - Undefined variable: content in /Applications/MAMP/htdocs/schcms/fuel/app/views/admin/template.php on line 78
+Error - 2012-10-29 14:43:51 --> 8 - Undefined variable: title in /Applications/MAMP/htdocs/schcms/fuel/app/views/admin/template.php on line 5
+Error - 2012-10-29 14:43:51 --> 8 - Undefined variable: content in /Applications/MAMP/htdocs/schcms/fuel/app/views/admin/template.php on line 78
+Error - 2012-10-29 14:56:35 --> 8 - Undefined variable: title in /Applications/MAMP/htdocs/schcms/fuel/app/views/admin/template.php on line 5
+Error - 2012-10-29 14:56:35 --> 8 - Undefined variable: content in /Applications/MAMP/htdocs/schcms/fuel/app/views/admin/template.php on line 78
+Error - 2012-10-29 14:56:36 --> 8 - Undefined variable: title in /Applications/MAMP/htdocs/schcms/fuel/app/views/admin/template.php on line 5
+Error - 2012-10-29 14:56:36 --> 8 - Undefined variable: content in /Applications/MAMP/htdocs/schcms/fuel/app/views/admin/template.php on line 78
+Error - 2012-10-29 14:56:36 --> 8 - Undefined variable: title in /Applications/MAMP/htdocs/schcms/fuel/app/views/admin/template.php on line 5
+Error - 2012-10-29 14:56:36 --> 8 - Undefined variable: content in /Applications/MAMP/htdocs/schcms/fuel/app/views/admin/template.php on line 78
+Error - 2012-10-29 14:56:42 --> 8 - Undefined variable: title in /Applications/MAMP/htdocs/schcms/fuel/app/views/admin/template.php on line 5
+Error - 2012-10-29 14:56:42 --> 8 - Undefined variable: content in /Applications/MAMP/htdocs/schcms/fuel/app/views/admin/template.php on line 78
+Error - 2012-10-29 14:56:53 --> 8 - Undefined variable: title in /Applications/MAMP/htdocs/schcms/fuel/app/views/admin/template.php on line 5
+Error - 2012-10-29 14:56:53 --> 8 - Undefined variable: content in /Applications/MAMP/htdocs/schcms/fuel/app/views/admin/template.php on line 78
+Error - 2012-10-29 14:56:54 --> 8 - Undefined variable: title in /Applications/MAMP/htdocs/schcms/fuel/app/views/admin/template.php on line 5
+Error - 2012-10-29 14:56:54 --> 8 - Undefined variable: content in /Applications/MAMP/htdocs/schcms/fuel/app/views/admin/template.php on line 78
+Error - 2012-10-29 14:56:54 --> 8 - Undefined variable: title in /Applications/MAMP/htdocs/schcms/fuel/app/views/admin/template.php on line 5
+Error - 2012-10-29 14:56:54 --> 8 - Undefined variable: content in /Applications/MAMP/htdocs/schcms/fuel/app/views/admin/template.php on line 78

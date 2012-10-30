@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<title><?php echo $title; ?> | Heart of England School</title>
-	<?php echo Asset::css('bootstrap.css'); ?>
+	<?php echo Asset::css('main.css'); ?>
 	<style>
 		body { margin: 50px; }
 	</style>
