@@ -6,9 +6,9 @@
 return array(
 	'default' => array(
 		'connection'  => array(
-			'dsn'        => 'mysql:host=127.0.0.1;dbname=cms',
-			'username'   => 'root',
-			'password'   => 'root',
+			'dsn'        => 'mysql:host=79.170.44.147;dbname=web147-cms-7',
+			'username'   => 'web147-cms-7',
+			'password'   => 'cf664bz',
 		),
 	),
 );

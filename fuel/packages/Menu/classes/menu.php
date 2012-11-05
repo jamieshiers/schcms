@@ -32,7 +32,7 @@ class MenuBuilder
 		$parent_stack = array();
 
 		// HTML wrapper for the menu (open)
-		$html[] = "<ul>";
+		$html[] = '<ul class="main-nav">';
 
 		while ( $loop && ( ( $option = each( $children[$parent] ) ) || ( $parent > $root_id ) ) )
 		{

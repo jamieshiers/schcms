@@ -1,68 +1,48 @@
- <!DOCTYPE html>
+
+<!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
-	<title><?php echo $title; ?> | Heart of England School</title>
+	<meta name="viewport" content="width=device-width, inital-scale=1.0">
+	<title><?php echo $title; ?> | <?php echo Config::get('settings.school_name')?></title>
 	<?php echo Asset::css('main.css'); ?>
-	<style>
-		body { margin: 50px; }
-	</style>
 	<?php echo Asset::js(array(
 		'http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js',
 		'bootstrap.js', 
 		'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js'
 	)); ?>
-
-	<script>
-		$(function(){ $('.topbar').dropdown(); });
-	</script>
 </head>
 <body>
-	<div class="container">
-		<div class="topbar">
-	    	<div class="fill">
-	        	<div class="container">
-	            	<h3><a href="/">My Site</a></h3>
-	            	<!-- echo out the main menu -->
-	            		<?php echo $menu;?>
+	<div class="wrap">
+		<header>
+			<a title="Open Navigation" class="menu-link"><i class="icon-large icon-reorder"></i></a>
+			<div class="logo"><a href="/"></a></div>
+			<nav role="navigation">
+				<?php echo $menu; ?>
+			</nav>
+		</header>
+		<?php echo $content;?>
 
-	        	</div>
-	    	</div>
-		</div>
-		<div class="row">
-			<div class="span16">
-				
-				<hr>
-<?php if (Session::get_flash('success')): ?>
-				<div class="alert-message success">
-					<p>
-					<?php echo implode('</p><p>', (array) Session::get_flash('success')); ?>
-					</p>
-				</div>
-<?php endif; ?>
-<?php if (Session::get_flash('error')): ?>
-				<div class="alert-message error">
-					<p>
-					<?php echo implode('</p><p>', (array) Session::get_flash('error')); ?>
-					</p>
-				</div>
-<?php endif; ?>
-			</div>
-			<div class="span16">
-<?php echo $content; ?>
-
-
-
-
-
-			</div>
-		</div>
 		<footer>
 			<p class="pull-right">Page rendered in {exec_time}s using {mem_usage}mb of memory.</p>
 			<p>
 				<small>Version: <?php echo e(Fuel::VERSION); ?></small>
 			</p>
 		</footer>
+
 	</div>
+
+
+		
+
+	<script>
+  $(document).ready(function(){
+   $('body').addClass('js');
+   $('.menu-link').click(function(){
+    $('.menu-link').toggleClass('active');
+    $('.wrap').toggleClass('active');
+    });
+   });
+</script>
 </body>
 </html>
