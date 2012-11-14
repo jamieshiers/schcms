@@ -10,7 +10,7 @@ class Controller_Admin_Twitter extends Controller_Admin
 
 	public function action_logout()
 	{
-		Session::destroy();
+		Twitter::logout();
 		Response::redirect(Uri::create('admin/settings/accounts'));
 	}
 

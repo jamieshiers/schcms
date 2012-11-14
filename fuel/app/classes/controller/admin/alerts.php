@@ -45,10 +45,13 @@ class Controller_Admin_Alerts extends Controller_Admin
 					'active' => Input::post('active'),
 				));
 
+				if(Config::get('twitter.active_twitter') == 'set')
+				{
+					Twitter::get('account/verify_credentials');
+					Twitter::post('statuses/update', array('status' => Input::post('alert_desc')));
+				}
 
-
-				Twitter::get('account/verify_credentials');
-				Twitter::post('statuses/update', array('status' => Input::post('alert_desc')));
+				
 
 				if ($alert and $alert->save())
 				{
