@@ -12,5 +12,5 @@ return array(
 		'twitter_consumer_secret' => NULL,
 	),
 	'db_connection' => NULL,
-	'active_twitter' => NULL,
+	'active_twitter' => 'set',
 );
