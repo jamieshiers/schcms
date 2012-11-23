@@ -1,0 +1,8 @@
+<?php defined('COREPATH') or exit('No direct script access allowed'); ?>
+
+Error - 2012-11-12 14:05:21 --> 2 - include(/Applications/MAMP/htdocs/schcms/fuel/packages/orm/bootstrap.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory in /Applications/MAMP/htdocs/schcms/fuel/core/classes/fuel.php on line 294
+Error - 2012-11-12 14:05:21 --> 2 - include() [<a href='function.include'>function.include</a>]: Failed opening '/Applications/MAMP/htdocs/schcms/fuel/packages/orm/bootstrap.php' for inclusion (include_path='.:/Applications/MAMP/bin/php5.3/lib/php') in /Applications/MAMP/htdocs/schcms/fuel/core/classes/fuel.php on line 294
+Error - 2012-11-12 14:05:21 --> 1049 - SQLSTATE[42000] [1049] Unknown database 'cms' in /Applications/MAMP/htdocs/schcms/fuel/core/classes/database/pdo/connection.php on line 86
+Error - 2012-11-12 14:07:37 --> 2 - include(/Applications/MAMP/htdocs/schcms/fuel/packages/orm/bootstrap.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory in /Applications/MAMP/htdocs/schcms/fuel/core/classes/fuel.php on line 294
+Error - 2012-11-12 14:07:37 --> 2 - include() [<a href='function.include'>function.include</a>]: Failed opening '/Applications/MAMP/htdocs/schcms/fuel/packages/orm/bootstrap.php' for inclusion (include_path='.:/Applications/MAMP/bin/php5.3/lib/php') in /Applications/MAMP/htdocs/schcms/fuel/core/classes/fuel.php on line 294
+Error - 2012-11-12 14:07:37 --> Error - Class 'Orm\Model' not found in /Applications/MAMP/htdocs/schcms/fuel/app/classes/model/post.php on line 3
