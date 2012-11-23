@@ -1,6 +1,6 @@
 {
   "CodeKitInfo" : "This is a CodeKit project configuration file. It is designed to sync project settings across multiple machines. Modifying the contents of this file can be a poor life decision if you don't know what you're doing. This file is not useful unless accompanied by the project that created it in CodeKit. For more information, see: http:\/\/incident57.com\/codekit",
-  "creatorBuild" : "7839",
+  "creatorBuild" : "7978",
   "files" : {
     "\/assets\/js\/editor\/src\/commands\/justifyLeft.js" : {
       "ignoreWasSetByUser" : 0,
@@ -75,6 +75,17 @@
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
     },
+    "\/assets\/js\/editor\/src\/assert\/html_equal.js" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/assets\/js\/editor\/src\/assert\/html_equal.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 1,
+      "outputAbbreviatedPath" : "\/assets\/js\/editor\/src\/assert\/html_equal-ck.js",
+      "fileType" : 64
+    },
     "\/assets\/js\/bootstrap.js" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -106,17 +117,6 @@
       "outputStyle" : 1,
       "syntaxCheckerStyle" : 1,
       "outputAbbreviatedPath" : "\/assets\/js\/editor\/test\/dom\/copy_attributes_test-ck.js",
-      "fileType" : 64
-    },
-    "\/assets\/js\/editor\/src\/assert\/html_equal.js" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/assets\/js\/editor\/src\/assert\/html_equal.js",
-      "outputStyle" : 1,
-      "syntaxCheckerStyle" : 1,
-      "outputAbbreviatedPath" : "\/assets\/js\/editor\/src\/assert\/html_equal-ck.js",
       "fileType" : 64
     },
     "\/assets\/js\/jQuery.popover\/jquery.popover-1.1.0.js" : {
@@ -216,17 +216,6 @@
       "outputAbbreviatedPath" : "\/assets\/js\/editor\/dist\/wysihtml5-0.3.0.min-ck.js",
       "fileType" : 64
     },
-    "\/assets\/js\/editor\/test\/assert\/html_equal_test.js" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/assets\/js\/editor\/test\/assert\/html_equal_test.js",
-      "outputStyle" : 1,
-      "syntaxCheckerStyle" : 1,
-      "outputAbbreviatedPath" : "\/assets\/js\/editor\/test\/assert\/html_equal_test-ck.js",
-      "fileType" : 64
-    },
     "\/assets\/js\/editor\/src\/dom\/has_element_with_tag_name.js" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -236,6 +225,17 @@
       "outputStyle" : 1,
       "syntaxCheckerStyle" : 1,
       "outputAbbreviatedPath" : "\/assets\/js\/editor\/src\/dom\/has_element_with_tag_name-ck.js",
+      "fileType" : 64
+    },
+    "\/assets\/js\/editor\/test\/assert\/html_equal_test.js" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/assets\/js\/editor\/test\/assert\/html_equal_test.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 1,
+      "outputAbbreviatedPath" : "\/assets\/js\/editor\/test\/assert\/html_equal_test-ck.js",
       "fileType" : 64
     },
     "\/assets\/js\/editor\/src\/views\/view.js" : {
@@ -346,15 +346,6 @@
       "outputAbbreviatedPath" : "\/assets\/js\/editor\/src\/dom\/convert_to_list-ck.js",
       "fileType" : 64
     },
-    "\/assets\/css\/chosen.css" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/assets\/css\/chosen.css",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 16
-    },
     "\/assets\/js\/editor\/src\/dom\/rename_element.js" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -364,17 +355,6 @@
       "outputStyle" : 1,
       "syntaxCheckerStyle" : 1,
       "outputAbbreviatedPath" : "\/assets\/js\/editor\/src\/dom\/rename_element-ck.js",
-      "fileType" : 64
-    },
-    "\/assets\/js\/editor\/src\/toolbar\/toolbar.js" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/assets\/js\/editor\/src\/toolbar\/toolbar.js",
-      "outputStyle" : 1,
-      "syntaxCheckerStyle" : 1,
-      "outputAbbreviatedPath" : "\/assets\/js\/editor\/src\/toolbar\/toolbar-ck.js",
       "fileType" : 64
     },
     "\/assets\/js\/editor\/src\/dom\/insert_css.js" : {
@@ -388,6 +368,26 @@
       "outputAbbreviatedPath" : "\/assets\/js\/editor\/src\/dom\/insert_css-ck.js",
       "fileType" : 64
     },
+    "\/assets\/js\/editor\/src\/toolbar\/toolbar.js" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/assets\/js\/editor\/src\/toolbar\/toolbar.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 1,
+      "outputAbbreviatedPath" : "\/assets\/js\/editor\/src\/toolbar\/toolbar-ck.js",
+      "fileType" : 64
+    },
+    "\/assets\/css\/chosen.css" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/assets\/css\/chosen.css",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 16
+    },
     "\/assets\/js\/editor\/test\/dom\/insert_css_test.js" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -397,39 +397,6 @@
       "outputStyle" : 1,
       "syntaxCheckerStyle" : 1,
       "outputAbbreviatedPath" : "\/assets\/js\/editor\/test\/dom\/insert_css_test-ck.js",
-      "fileType" : 64
-    },
-    "\/assets\/img\/icons\/doc.png" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/assets\/img\/icons\/doc.png",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/assets\/img\/icons\/doc.png",
-      "initialSize" : 5709,
-      "fileType" : 8192
-    },
-    "\/assets\/js\/editor\/src\/commands\/insertOrderedList.js" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/assets\/js\/editor\/src\/commands\/insertOrderedList.js",
-      "outputStyle" : 1,
-      "syntaxCheckerStyle" : 1,
-      "outputAbbreviatedPath" : "\/assets\/js\/editor\/src\/commands\/insertOrderedList-ck.js",
-      "fileType" : 64
-    },
-    "\/assets\/js\/editor\/src\/selection\/selection.js" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/assets\/js\/editor\/src\/selection\/selection.js",
-      "outputStyle" : 1,
-      "syntaxCheckerStyle" : 1,
-      "outputAbbreviatedPath" : "\/assets\/js\/editor\/src\/selection\/selection-ck.js",
       "fileType" : 64
     },
     "\/assets\/js\/editor\/dist\/wysihtml5-0.3.0_rc2.js" : {
@@ -443,6 +410,17 @@
       "outputAbbreviatedPath" : "\/assets\/js\/editor\/dist\/wysihtml5-0.3.0_rc2-ck.js",
       "fileType" : 64
     },
+    "\/assets\/js\/editor\/src\/commands\/insertOrderedList.js" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/assets\/js\/editor\/src\/commands\/insertOrderedList.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 1,
+      "outputAbbreviatedPath" : "\/assets\/js\/editor\/src\/commands\/insertOrderedList-ck.js",
+      "fileType" : 64
+    },
     "\/assets\/js\/editor\/src\/dom\/contains.js" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -454,6 +432,28 @@
       "outputAbbreviatedPath" : "\/assets\/js\/editor\/src\/dom\/contains-ck.js",
       "fileType" : 64
     },
+    "\/assets\/js\/editor\/src\/selection\/selection.js" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/assets\/js\/editor\/src\/selection\/selection.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 1,
+      "outputAbbreviatedPath" : "\/assets\/js\/editor\/src\/selection\/selection-ck.js",
+      "fileType" : 64
+    },
+    "\/assets\/img\/icons\/doc.png" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/assets\/img\/icons\/doc.png",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/assets\/img\/icons\/doc.png",
+      "initialSize" : 5709,
+      "fileType" : 8192
+    },
     "\/assets\/js\/editor\/test\/incompatible_test.js" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -463,6 +463,17 @@
       "outputStyle" : 1,
       "syntaxCheckerStyle" : 1,
       "outputAbbreviatedPath" : "\/assets\/js\/editor\/test\/incompatible_test-ck.js",
+      "fileType" : 64
+    },
+    "\/assets\/js\/editor\/src\/lang\/object.js" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/assets\/js\/editor\/src\/lang\/object.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 1,
+      "outputAbbreviatedPath" : "\/assets\/js\/editor\/src\/lang\/object-ck.js",
       "fileType" : 64
     },
     "\/assets\/js\/editor\/test\/dom\/auto_link_test.js" : {
@@ -487,17 +498,6 @@
       "outputAbbreviatedPath" : "\/assets\/js\/editor\/test\/dom\/set_attributes_test-ck.js",
       "fileType" : 64
     },
-    "\/assets\/js\/editor\/src\/lang\/object.js" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/assets\/js\/editor\/src\/lang\/object.js",
-      "outputStyle" : 1,
-      "syntaxCheckerStyle" : 1,
-      "outputAbbreviatedPath" : "\/assets\/js\/editor\/src\/lang\/object-ck.js",
-      "fileType" : 64
-    },
     "\/assets\/js\/editor\/test\/dom\/has_element_with_tag_name_test.js" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -508,6 +508,15 @@
       "syntaxCheckerStyle" : 1,
       "outputAbbreviatedPath" : "\/assets\/js\/editor\/test\/dom\/has_element_with_tag_name_test-ck.js",
       "fileType" : 64
+    },
+    "\/assets\/css\/index.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/assets\/css\/index.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
     },
     "\/assets\/js\/editor\/dist\/wysihtml5-0.3.0.js" : {
       "ignoreWasSetByUser" : 0,
@@ -542,15 +551,6 @@
       "outputAbbreviatedPath" : "\/assets\/js\/fullcalendar-ck.js",
       "fileType" : 64
     },
-    "\/assets\/css\/index.html" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/assets\/css\/index.html",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 2048
-    },
     "\/assets\/css\/fullcalendar.css" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -559,6 +559,17 @@
       "inputAbbreviatedPath" : "\/assets\/css\/fullcalendar.css",
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 16
+    },
+    "\/assets\/js\/editor\/test\/dom\/get_style_test.js" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/assets\/js\/editor\/test\/dom\/get_style_test.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 1,
+      "outputAbbreviatedPath" : "\/assets\/js\/editor\/test\/dom\/get_style_test-ck.js",
+      "fileType" : 64
     },
     "\/assets\/js\/index.html" : {
       "ignoreWasSetByUser" : 0,
@@ -590,17 +601,6 @@
       "outputAbbreviatedPath" : "\/assets\/img\/icons\/ppt.png",
       "initialSize" : 5805,
       "fileType" : 8192
-    },
-    "\/assets\/js\/editor\/test\/dom\/get_style_test.js" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/assets\/js\/editor\/test\/dom\/get_style_test.js",
-      "outputStyle" : 1,
-      "syntaxCheckerStyle" : 1,
-      "outputAbbreviatedPath" : "\/assets\/js\/editor\/test\/dom\/get_style_test-ck.js",
-      "fileType" : 64
     },
     "\/assets\/js\/editor\/src\/wysihtml5.js" : {
       "ignoreWasSetByUser" : 0,
@@ -677,15 +677,15 @@
       "outputAbbreviatedPath" : "\/assets\/js\/editor\/src\/views\/synchronizer-ck.js",
       "fileType" : 64
     },
-    "\/assets\/js\/editor\/src\/commands\/insertLineBreak.js" : {
+    "\/assets\/js\/editor\/test\/undo_manager_test.js" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/assets\/js\/editor\/src\/commands\/insertLineBreak.js",
+      "inputAbbreviatedPath" : "\/assets\/js\/editor\/test\/undo_manager_test.js",
       "outputStyle" : 1,
       "syntaxCheckerStyle" : 1,
-      "outputAbbreviatedPath" : "\/assets\/js\/editor\/src\/commands\/insertLineBreak-ck.js",
+      "outputAbbreviatedPath" : "\/assets\/js\/editor\/test\/undo_manager_test-ck.js",
       "fileType" : 64
     },
     "\/assets\/js\/editor\/parser_rules\/simple.js" : {
@@ -699,15 +699,15 @@
       "outputAbbreviatedPath" : "\/assets\/js\/editor\/parser_rules\/simple-ck.js",
       "fileType" : 64
     },
-    "\/assets\/js\/editor\/test\/undo_manager_test.js" : {
+    "\/assets\/js\/editor\/src\/commands\/insertLineBreak.js" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/assets\/js\/editor\/test\/undo_manager_test.js",
+      "inputAbbreviatedPath" : "\/assets\/js\/editor\/src\/commands\/insertLineBreak.js",
       "outputStyle" : 1,
       "syntaxCheckerStyle" : 1,
-      "outputAbbreviatedPath" : "\/assets\/js\/editor\/test\/undo_manager_test-ck.js",
+      "outputAbbreviatedPath" : "\/assets\/js\/editor\/src\/commands\/insertLineBreak-ck.js",
       "fileType" : 64
     },
     "\/assets\/js\/editor\/src\/quirks\/get_correct_inner_html.js" : {
@@ -1093,17 +1093,6 @@
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 16
     },
-    "\/assets\/js\/editor\/src\/lang\/string.js" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/assets\/js\/editor\/src\/lang\/string.js",
-      "outputStyle" : 1,
-      "syntaxCheckerStyle" : 1,
-      "outputAbbreviatedPath" : "\/assets\/js\/editor\/src\/lang\/string-ck.js",
-      "fileType" : 64
-    },
     "\/assets\/js\/editor\/src\/views\/composer.js" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -1113,6 +1102,17 @@
       "outputStyle" : 1,
       "syntaxCheckerStyle" : 1,
       "outputAbbreviatedPath" : "\/assets\/js\/editor\/src\/views\/composer-ck.js",
+      "fileType" : 64
+    },
+    "\/assets\/js\/editor\/src\/lang\/string.js" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/assets\/js\/editor\/src\/lang\/string.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 1,
+      "outputAbbreviatedPath" : "\/assets\/js\/editor\/src\/lang\/string-ck.js",
       "fileType" : 64
     },
     "\/assets\/js\/editor\/src\/commands\/insertImage.js" : {
@@ -1298,15 +1298,15 @@
       "outputAbbreviatedPath" : "\/assets\/js\/editor\/src\/editor-ck.js",
       "fileType" : 64
     },
-    "\/assets\/js\/editor\/test\/dom\/observe_test.js" : {
+    "\/assets\/js\/editor\/test\/dom\/delegate_test.js" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/assets\/js\/editor\/test\/dom\/observe_test.js",
+      "inputAbbreviatedPath" : "\/assets\/js\/editor\/test\/dom\/delegate_test.js",
       "outputStyle" : 1,
       "syntaxCheckerStyle" : 1,
-      "outputAbbreviatedPath" : "\/assets\/js\/editor\/test\/dom\/observe_test-ck.js",
+      "outputAbbreviatedPath" : "\/assets\/js\/editor\/test\/dom\/delegate_test-ck.js",
       "fileType" : 64
     },
     "\/assets\/js\/editor\/test\/quirks\/clean_pasted_html_test.js" : {
@@ -1320,15 +1320,15 @@
       "outputAbbreviatedPath" : "\/assets\/js\/editor\/test\/quirks\/clean_pasted_html_test-ck.js",
       "fileType" : 64
     },
-    "\/assets\/js\/editor\/test\/dom\/delegate_test.js" : {
+    "\/assets\/js\/editor\/test\/dom\/observe_test.js" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/assets\/js\/editor\/test\/dom\/delegate_test.js",
+      "inputAbbreviatedPath" : "\/assets\/js\/editor\/test\/dom\/observe_test.js",
       "outputStyle" : 1,
       "syntaxCheckerStyle" : 1,
-      "outputAbbreviatedPath" : "\/assets\/js\/editor\/test\/dom\/delegate_test-ck.js",
+      "outputAbbreviatedPath" : "\/assets\/js\/editor\/test\/dom\/observe_test-ck.js",
       "fileType" : 64
     },
     "\/assets\/js\/editor\/lib\/base\/base.js" : {
@@ -1375,6 +1375,15 @@
       "initialSize" : 559,
       "fileType" : 8192
     },
+    "\/assets\/css\/fullcalendar.print.css" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/assets\/css\/fullcalendar.print.css",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 16
+    },
     "\/assets\/js\/editor\/examples\/css\/stylesheet.css" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -1383,17 +1392,6 @@
       "inputAbbreviatedPath" : "\/assets\/js\/editor\/examples\/css\/stylesheet.css",
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 16
-    },
-    "\/assets\/js\/editor\/src\/commands\/createLink.js" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/assets\/js\/editor\/src\/commands\/createLink.js",
-      "outputStyle" : 1,
-      "syntaxCheckerStyle" : 1,
-      "outputAbbreviatedPath" : "\/assets\/js\/editor\/src\/commands\/createLink-ck.js",
-      "fileType" : 64
     },
     "\/assets\/js\/editor\/dist\/wysihtml5-0.3.0_rc2.min.js" : {
       "ignoreWasSetByUser" : 0,
@@ -1406,6 +1404,17 @@
       "outputAbbreviatedPath" : "\/assets\/js\/editor\/dist\/wysihtml5-0.3.0_rc2.min-ck.js",
       "fileType" : 64
     },
+    "\/assets\/js\/editor\/src\/commands\/createLink.js" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/assets\/js\/editor\/src\/commands\/createLink.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 1,
+      "outputAbbreviatedPath" : "\/assets\/js\/editor\/src\/commands\/createLink-ck.js",
+      "fileType" : 64
+    },
     "\/assets\/js\/editor\/src\/undo_manager.js" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -1416,15 +1425,6 @@
       "syntaxCheckerStyle" : 1,
       "outputAbbreviatedPath" : "\/assets\/js\/editor\/src\/undo_manager-ck.js",
       "fileType" : 64
-    },
-    "\/assets\/css\/fullcalendar.print.css" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/assets\/css\/fullcalendar.print.css",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 16
     },
     "\/assets\/js\/editor\/src\/commands\/formatInline.js" : {
       "ignoreWasSetByUser" : 0,
@@ -1646,5 +1646,11 @@
     "lessDebugStyle" : 0,
     "javascriptAutoOutputPathRelativePath" : "",
     "slimAutoOutputPathStyle" : 0
+  },
+  "projectAttributes" : {
+    "bourbonEnabled" : 0,
+    "displayValue" : "public",
+    "displayValueWasSetByUser" : 0,
+    "compassEnabled" : 0
   }
 }

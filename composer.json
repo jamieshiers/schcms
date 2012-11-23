@@ -1,0 +1,9 @@
+{
+	"config": {
+		"vendor-dir": "fuel/vendor"
+	}, 
+
+	"require": {
+		"phpunit/phpunit": "3.7.*"
+	}
+}

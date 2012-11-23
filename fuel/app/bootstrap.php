@@ -15,7 +15,7 @@ Autoloader::add_classes(array(
 
 // Register the autoloader
 Autoloader::register();
-
+require dirname(COREPATH).'/vendor/autoload.php';
 /**
  * Your environment.  Can be set to any of the following:
  *
