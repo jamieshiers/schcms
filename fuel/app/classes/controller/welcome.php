@@ -110,8 +110,10 @@ class Controller_Welcome extends Controller_Base
 		//find out if the page has any modules that it needs loading into it
 		//work out where they need to be placed on the page.
 		
-		$data['left'] = '';
-		$data['right'] = '';
+		$positions = array('top', 'left', 'right', 'bottom');
+		
+		//$data['left'] = '';
+		//$data['right'] = '';
 
 		$modules = Model_Module::find('all', array(
 			'where' => array(
@@ -120,18 +122,18 @@ class Controller_Welcome extends Controller_Base
 				),
 			'order_by' => array('order' => 'asc'),
 			));
-		
-		foreach($modules as $module)
+	
+		foreach($positions as $p)
 		{
-			if($module['position'] == 'left')
+			$data['module'][$p] = "";
+			foreach($modules as $module)
 			{
-				Package::load($module['module_name']);
-				$data['left'] .= $module['module_name']::build(2, 3);
-			}
-			if($module['position'] == 'right')
-			{
-				Package::load($module['module_name']);
-				$data['right'] .= $module['module_name']::build(2, 3);
+				if($module['position'] == $p)
+				{
+					Package::load($module ['module_name']);
+					$data['module'][$p] .= $module['module_name']::build(2, 3);
+				}
+				
 			}
 		}
 
