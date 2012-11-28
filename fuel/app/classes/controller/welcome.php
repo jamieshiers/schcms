@@ -109,11 +109,8 @@ class Controller_Welcome extends Controller_Base
 
 		//find out if the page has any modules that it needs loading into it
 		//work out where they need to be placed on the page.
-		
-		$positions = array('top', 'left', 'right', 'bottom');
-		
-		//$data['left'] = '';
-		//$data['right'] = '';
+
+		$positions = Config::load('positions', true);
 
 		$modules = Model_Module::find('all', array(
 			'where' => array(
@@ -139,7 +136,8 @@ class Controller_Welcome extends Controller_Base
 
 		//Send over the page varirbles and begin to create the page
 
-		$this->template->title = $data['content']->title; 
+		$this->template->title = $data['content']->title;
+		$this->template->module = $data['module'];
 		$this->template->content = View::forge('welcome/pages', $data, FALSE);
 	}
 

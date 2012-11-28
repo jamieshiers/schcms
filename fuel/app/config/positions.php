@@ -1,3 +1,3 @@
 <?php 
-return array('all' => 'right', 'top', 'bottom');
+return array('left', 'right', 'top', 'bottom');
 

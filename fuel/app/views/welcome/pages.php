@@ -12,6 +12,6 @@
 </div>
 <div class="right">
 	<?php echo($module['right']); ?>
-</div> 
+</div>
 
 

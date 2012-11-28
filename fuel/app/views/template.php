@@ -61,6 +61,7 @@
 			<p class="pull-right">Page rendered in {exec_time}s using {mem_usage}mb of memory.</p>
 			<p>
 				<small>Version: <?php echo e(Fuel::VERSION); ?></small>
+				<?php echo($module['bottom']); ?>
 			</p>
 		</footer>
 	</div>
