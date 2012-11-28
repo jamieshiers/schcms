@@ -8,10 +8,10 @@
 <?php echo $content->body; echo "<br />";?>
 
 <div class="left">
-<?php echo($left); ?>
+	<?php echo($module['left']); ?>
 </div>
 <div class="right">
-<?php echo($right); ?>
+	<?php echo($module['right']); ?>
 </div> 
 
 
