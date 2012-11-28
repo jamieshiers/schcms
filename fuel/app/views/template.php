@@ -62,6 +62,7 @@
 			<p>
 				<small>Version: <?php echo e(Fuel::VERSION); ?></small>
 				<?php echo($module['bottom']); ?>
+				<?php echo($module['right2']); ?>
 			</p>
 		</footer>
 	</div>

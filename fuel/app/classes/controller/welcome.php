@@ -109,9 +109,10 @@ class Controller_Welcome extends Controller_Base
 
 		//find out if the page has any modules that it needs loading into it
 		//work out where they need to be placed on the page.
-
+		
+		// Grab the positions from the config file
 		$positions = Config::load('positions', true);
-
+		// Grab the modules from the database
 		$modules = Model_Module::find('all', array(
 			'where' => array(
 				array('page_id', '=', $data['content']->id),
