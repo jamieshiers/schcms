@@ -20,7 +20,7 @@ class Twitter_Oauth {
 	protected $access_token_url   = 'http://api.twitter.com/oauth/access_token';
 	protected $signature_method   = 'HMAC-SHA1';
 	protected $version            = '1.0';
-	protected $api_url            = 'http://api.twitter.com';
+	protected $api_url            = 'http://api.twitter.com/1.1';
 	protected $search_url         = 'http://search.twitter.com/';
 	protected $callback = null;
 	protected $errors = array();
@@ -411,6 +411,7 @@ class Twitter_Oauth {
 		catch (\TwitterException $e)
 		{
 			$this->errors[] = $e;
+			//return array("error" => $e->getMessage());
 		}
 	}
 

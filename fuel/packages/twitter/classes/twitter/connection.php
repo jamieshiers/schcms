@@ -63,8 +63,8 @@ class Twitter_Connection {
 	 */
 	public function get($url, $params)
 	{
-		
-		$this->init_connection($url);
+		($params['request'] === null) and $params['request'] = array();
+		$this->init_connection($url.'?'.http_build_query($params['request'],'','&'));
 		$response = $this->add_curl($url, $params);
 	    
 	    return $response;
@@ -111,6 +111,7 @@ class Twitter_Connection {
 		$_h[] = substr($oauth, 0, -1);
 		
 		curl_setopt($ch, CURLOPT_HTTPHEADER, $_h);
+		curl_setopt($this->_ch, CURLOPT_VERBOSE, 1);
 	}
 	
 	/**
@@ -181,7 +182,19 @@ class Twitter_Connection {
 					
 					if ($response->__resp->code !== 200)
 					{
-						throw new \TwitterException(isset($response->__resp->data->error) ? $response->__resp->data->error : $response->__resp->data, $response->__resp->code);
+						$error_keys = array("error", "errors");
+						$error_data = $response->__resp->data;
+						foreach ($error_keys as $k){
+							if (isset($response->__resp->data->{$k})){
+								$error_data = $response->__resp->data->{$k};
+							}
+						}
+
+						if (isset($error_data[0]->message)){
+							$error_data = $error_data[0]->message;
+						}
+						
+						throw new \TwitterException($error_data, $response->__resp->code);
 					}
 					
 					return $response;

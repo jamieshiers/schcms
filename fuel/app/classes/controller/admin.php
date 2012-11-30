@@ -71,6 +71,10 @@ class Controller_Admin extends Controller_Base {
 	 */
 	public function action_index()
 	{
+		//$twitter = Twitter::get('statuses/user_timeline');
+
+		//print_r($twitter);
+
 		$this->template->title = 'Dashboard';
 		$this->template->content = View::forge('admin/dashboard');
 	}

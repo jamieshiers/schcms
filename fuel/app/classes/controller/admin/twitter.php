@@ -39,5 +39,15 @@ class Controller_Admin_Twitter extends Controller_Admin
 		Response::redirect(Uri::create('admin/settings/accounts'));
 	}
 
-	
+	public function action_test()
+	{
+
+		$twitter_user = Twitter::get('account/verify_credentials');
+
+		print_r($twitter_user);
+
+
+
+
+	}
 }
